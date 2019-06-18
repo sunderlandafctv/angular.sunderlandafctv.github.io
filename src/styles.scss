@@ -1,0 +1,122 @@
+@import "css/colours","css/variables";
+
+//RESET
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a{text-decoration:none}
+
+//FONTS
+body,
+html{
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+}
+
+//MAIN WRAPPER
+main{
+    min-height: calc(100vh - 280px);
+    width: 75%;
+    margin: 0 auto
+}
+
+//LABEL ACCENT COLOUR
+.label{
+    max-width:calc(100% - 20px);
+    padding: 7.5px;
+    background-color: $colour_red;
+    color: $colour_white;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 2;
+    white-space:nowrap
+}
+
+//LARGE TITLE TEXT
+.title{
+    text-align: center;
+    margin: 30px;
+    font-size: 1.5em;
+    &.accent, 
+    & strong.accent{
+        color: $colour_red;
+    }
+}
+
+//CARD WRAPPER
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+//CARDS
+.card {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background: $colour_white;
+    box-shadow: 0 4px 8px 0 $colour_shadow;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px 0;
+    border: none;
+    text-align: center;
+
+    &.long {
+    
+        display: flex;
+        align-items: center;
+        
+        .subtitle {
+            text-align: center;
+            color: $colour_red;
+            margin: 0 auto 15px
+        }
+    
+    }
+
+    .title {
+        color: $colour_black;
+        font-size: 30px;
+        margin: 25px auto 20px
+    }
+
+    .image {
+        border: none;
+        border-radius: 5px;
+        object-fit: cover;
+        object-position: center;
+    
+        &.left {
+            display: inline-block;
+            height: 144px;
+            width: 144px;
+            box-shadow: none;
+            border-radius: 5px
+        }
+
+    }
+
+}
+
+
+//IFRAME VIDEO CARD
+.card.video {
+    width: 100%;
+    background:url(assets/loader.gif) center center no-repeat;
+
+    iframe {
+        padding: 0 15px;
+        width: calc(100% - 30px);
+        height:325px;
+        border:none
+    }
+
+}
+
+//MOBILE
+@media only screen and (min-width: $media_tablet){
+    .wrapper article.card{
+        width: 50%;
+    }
+}

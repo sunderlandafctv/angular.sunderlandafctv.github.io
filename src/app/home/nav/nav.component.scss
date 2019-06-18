@@ -1,0 +1,172 @@
+@import "../../../css/colours";
+
+header {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    user-select: none;
+    background: $colour_white;
+
+	.logo {
+		font-weight: 700;
+		font-size: 2em;
+        margin: 0 auto 0 10px;
+        color: $colour_black;
+		strong {
+			&:after {
+				color: $colour_red;
+				content: "SAFC";
+			}
+		}
+		.v2 {
+			position: relative;
+			left: 5px;
+			top: -.9em;
+			font-size: 50%;
+			font-weight: initial;
+			background-color: $colour_red;
+			color: $colour_white;
+			border-radius: .25em;
+			padding: .25em;
+		}
+	}
+}
+
+
+header.triangle{
+    background: $colour_red;
+    .logo {
+		strong {
+			&:after {
+				color: $colour_white;
+			}
+		}
+		.v2 {
+			background-color: #00000050; // <-- Only place this is used
+		}
+    }
+    nav {
+
+    }
+}
+
+nav {
+    float:right;
+    height: 100px;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    
+    & a {
+        display: none;
+        color: $colour_black;
+        font-size: 20px; 
+        transition: color .1s
+    }
+    & a.active {
+        color: $colour_red;
+    }
+}
+
+.hamburger {
+    height: 100%;
+    width: 100px;
+	padding: 15px;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: .15s;
+	transition-timing-function: linear;
+	font: inherit;
+	color: inherit;
+	text-transform: none;
+	background-color: transparent;
+	border: 0;
+	margin-left: auto;
+	overflow: visible;
+	.hamburger-inner {
+		top: 2px;
+		&::before {
+			top: 10px;
+			transition-property: transform, opacity;
+			transition-timing-function: ease;
+			transition-duration: .15s;
+		}
+		&::after {
+			top: 20px;
+		}
+	}
+}
+.hamburger.active {
+	.hamburger-inner {
+		background-color: #000;
+		&::before {
+			background-color: #000;
+		}
+		&::after {
+			background-color: #000;
+		}
+	}
+}
+.hamburger-box {
+	width: 40px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+.hamburger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -2px;
+	width: 35px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 4px;
+	position: absolute;
+	transition-property: transform;
+	transition-duration: .15s;
+	transition-timing-function: ease;
+	&::before {
+		width: 35px;
+		height: 4px;
+		background-color: #000;
+		border-radius: 4px;
+		position: absolute;
+		transition-property: transform;
+		transition-duration: .15s;
+		transition-timing-function: ease;
+		content: '';
+		display: block;
+		top: -10px;
+	}
+	&::after {
+		width: 35px;
+		height: 4px;
+		background-color: #000;
+		border-radius: 4px;
+		position: absolute;
+		transition-property: transform;
+		transition-duration: .15s;
+		transition-timing-function: ease;
+		content: '';
+		display: block;
+		bottom: -10px;
+	}
+}
+
+
+.triangle{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 0;
+    height: 0;
+    transition: border-top .3s;
+    border-right: 0 solid transparent;
+    z-index: -1;
+    
+    &.active{
+        border-left:100vw solid transparent;
+        border-top:30vh solid var(--accent)
+    }
+}
