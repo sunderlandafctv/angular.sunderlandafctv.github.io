@@ -1,0 +1,32 @@
+@import "../css/colours";
+
+footer{
+    min-height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $colour_red;
+    .accent{
+        color: $colour_red !important
+    }
+    .wrapper{
+        width: 711px;
+        background: $colour_white;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 6px;
+        text-align: center;
+        p{
+            width: 100%;
+            display: block;
+            font-size: 1.1em;
+            padding: 5px;
+            line-height: 1.2;
+            a{
+                color: $colour_black;
+                text-decoration: none;
+            }
+        }
+    }
+}
