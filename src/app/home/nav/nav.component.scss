@@ -6,7 +6,31 @@ header {
     height: 100px;
     width: 100%;
     user-select: none;
-    background: $colour_white;
+	background: $colour_white;
+	//mobile navigation menu is open
+	&.hamburgerActive nav .links {
+		background-color: $colour_white;
+		width: 100%;
+		height: calc(100vh - 100px);
+	}
+	//homepage triange is shown
+	&.triangleActive{
+		background: $colour_red;
+		.logo{
+			& strong:after{
+				color: $colour_white;
+			}
+			.v2{
+				background-color:#00000050 // Only place this is used
+			}
+		}
+		nav .links{
+			background-color: $colour_red !important;
+			a.active{
+				color: $colour_white;
+			}
+		}
+	}
 
 	.logo {
 		font-weight: 700;
@@ -31,44 +55,46 @@ header {
 			padding: .25em;
 		}
 	}
-}
-
-
-header.triangle{
-    background: $colour_red;
-    .logo {
-		strong {
-			&:after {
-				color: $colour_white;
+	nav .links {
+		display: flex;
+		height: 0;
+		overflow: hidden;
+		flex-direction: column;
+		justify-content: flex-start;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		background: inherit;
+		z-index:999; 
+		a {
+			color: $colour_black;
+        	font-size: 20px; 
+			text-align: center;
+			transition: color .1s;
+			margin-top: 50px;
+			&.active {
+				color: $colour_red;
 			}
 		}
-		.v2 {
-			background-color: #00000050; // <-- Only place this is used
-		}
-    }
-    nav {
-
-    }
+	}
+}
+//styling the homepage triangle
+.triangle{
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	transition: border-top .3s;
+	border-right: 0 solid transparent;
+	z-index: -1;
+	&.active{
+		border-left: 100vw solid transparent;
+		border-top: 30vh solid $colour_red
+	}
 }
 
-nav {
-    float:right;
-    height: 100px;
-    width: 50vw;
-    display: flex;
-    align-items: center;
-    
-    & a {
-        display: none;
-        color: $colour_black;
-        font-size: 20px; 
-        transition: color .1s
-    }
-    & a.active {
-        color: $colour_red;
-    }
-}
-
+//styling the animated hamburger
 .hamburger {
     height: 100%;
     width: 100px;
@@ -84,6 +110,9 @@ nav {
 	border: 0;
 	margin-left: auto;
 	overflow: visible;
+	&:focus{
+		outline: none;
+	}
 	.hamburger-inner {
 		top: 2px;
 		&::before {
@@ -98,14 +127,8 @@ nav {
 	}
 }
 .hamburger.active {
-	.hamburger-inner {
+	.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
 		background-color: #000;
-		&::before {
-			background-color: #000;
-		}
-		&::after {
-			background-color: #000;
-		}
 	}
 }
 .hamburger-box {
@@ -153,20 +176,14 @@ nav {
 		bottom: -10px;
 	}
 }
+.hamburger.active .hamburger-inner {
+	transform: translate3d(0, 10px, 0) rotate(45deg);
 
-
-.triangle{
-    position: absolute;
-    top: 100px;
-    left: 0;
-    width: 0;
-    height: 0;
-    transition: border-top .3s;
-    border-right: 0 solid transparent;
-    z-index: -1;
-    
-    &.active{
-        border-left:100vw solid transparent;
-        border-top:30vh solid var(--accent)
-    }
+	&::before {
+		transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+		opacity: 0
+	}
+	&::after {
+		transform: translate3d(0, -20px, 0) rotate(-90deg)
+	}
 }

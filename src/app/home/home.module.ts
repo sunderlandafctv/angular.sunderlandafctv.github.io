@@ -16,4 +16,5 @@ import { Top10sComponent } from './top10s/top10s.component';
     HomeRoutingModule
   ]
 })
+
 export class HomeModule { }

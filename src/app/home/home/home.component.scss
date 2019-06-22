@@ -1,17 +1,18 @@
 @import "../../../css/variables";
 
-.welcomeCard {
-    flex-direction: column;
+.card .image.left{
+    margin: 0 15px
+}
+
+.card.long {
     background: transparent;
     box-shadow: none;
-
-    .textWrapper {
-        width: 90%;
-        text-align: left
-    }
+    flex-direction: column;
+    background: transparent;
 }
 
 @keyframes fadingImages {
+    animation-timing-function: linear;
     0% {
         opacity: 1
     }
@@ -33,7 +34,7 @@
     div {
         height: 144px;
         width: 144px;
-        animation: fadingImages 30s infinite linear;
+        animation: fadingImages 30s infinite;
         position: absolute;
         margin: auto;
         border-radius: 5px;
@@ -66,23 +67,4 @@
         background: url(../../../assets/logos/5.png) center / cover
     }
 
-}
-
-@media only screen and (min-width: $media_smallphone){
-    .image.left{
-        float: left;
-        margin-left: 15px
-    }
-}
-
-@media only screen and (min-width: $media_tablet){
-    .welcomeCard {
-        flex-direction: initial;
-    }
-}
-
-@media only screen and (min-width: $media_smalllaptop){
-    .topPlayers a{
-        width: 33% !important;
-    }
 }
