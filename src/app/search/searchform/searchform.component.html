@@ -1,0 +1,16 @@
+<form class="wrapper" (ngSubmit)="search()" #searchForm="ngForm">
+
+  <input
+    class="searchInput" 
+    type="text" 
+    name="queryString"
+    placeholder="Search {{sq.searchType}}s ..."
+    [(ngModel)]="sq.queryString"
+  >
+  TODO: remove this: {{sq.queryString}}
+
+  <button class="submit" type="submit" required>
+    <i class="fas fa-search"></i>
+  </button>
+
+</form>

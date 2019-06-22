@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { TriangleService } from '../../triangle.service'
-import { Subscription, Subscribable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'safc-home-nav',

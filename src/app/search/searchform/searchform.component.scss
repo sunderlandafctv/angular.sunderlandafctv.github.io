@@ -1,0 +1,38 @@
+@import '../../../css/colours';
+
+$colour_searchGrey: #c2c2c2;
+
+.wrapper{
+    width: 250px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid $colour_searchGrey;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    margin-right: 15px;
+    &.focus{
+        border-color: $colour_red
+    }
+}
+
+.searchInput{
+    width: 70%;
+    height: 20px;
+    padding: 5px;
+    border: none;
+    margin: 5px 5px 5px 10px;
+    &:focus{
+        outline: none //to allow for .wrapper to act as the :focus effect
+    }
+}
+
+.submit{
+    background: transparent;
+    border: none;
+    position: relative;
+    top: 1px;
+    right: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: $colour_red
+}
