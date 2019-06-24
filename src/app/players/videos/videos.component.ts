@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { PlayerService } from '../player.service'
 
@@ -11,12 +10,12 @@ import { PlayerService } from '../player.service'
 
 export class VideosComponent implements OnInit {
 
-  constructor(private playerdata: PlayerService, private route: ActivatedRoute) { 
-    this.playerdata.init(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" "))
-  }
+  constructor(private playerdata: PlayerService) {}
 
   ngOnInit() {
-    console.log(this.playerdata.playerData)
+    this.playerdata.getPlayerData().subscribe(d => {
+      console.log(d)
+    });
   }
 
 }
