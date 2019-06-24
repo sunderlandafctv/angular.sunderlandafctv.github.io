@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../player.service'
+import { PlayerService } from '../player.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +10,12 @@ import { PlayerService } from '../player.service'
 
 export class HomeComponent implements OnInit {
 
-  constructor(private playerdata: PlayerService){}
+  constructor(private playerdata: PlayerService, private route: ActivatedRoute){}
 
   ngOnInit() {
-    this.playerdata.getPlayerData().subscribe(d => {
+    this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
       console.log(d)
     });
-  }
-
-  click(){
-    console.log(this.playerdata.playerData)
   }
 
 }
