@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 //search stuff
 import { SearchPageComponent } from './search/searchpage/searchpage.component'
 import { SearchNavComponent } from './search/searchnav/searchnav.component'
-import { SearchPageNoResultsComponent } from './search/searchpagenoresults/searchpagenoresults.component'
 
 const routes: Routes = [
   {
@@ -16,14 +15,13 @@ const routes: Routes = [
     loadChildren: () => import('./players/players.module').then(mod => mod.PlayersModule)
   },
   {
-    path: 'seasons',
+    path: 'seasons/:season',
     loadChildren: () => import('./season/season.module').then(mod => mod.SeasonModule)
   },
   { 
     path: 'search',
     children: [
       { path: '', component: SearchNavComponent, outlet: "nav" },
-      { path: '', component: SearchPageNoResultsComponent },
       { path: ':query', component: SearchPageComponent }
     ]
   },

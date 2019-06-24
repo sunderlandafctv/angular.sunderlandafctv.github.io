@@ -7,14 +7,25 @@ import { Router } from '@angular/router';
   templateUrl: './searchform.component.html',
   styleUrls: ['./searchform.component.scss']
 })
+
 export class SearchFormComponent {
 
   constructor(private router: Router) { }
 
-  sq: SearchRequest = new SearchRequest('', 'player');
+  sq: SearchRequest = new SearchRequest('');
+
+  isFocused: Boolean;
 
   search(){
     this.router.navigateByUrl(`/search/${this.sq.queryString}`);
+  }
+
+  focusHandler(isFocusing: boolean){
+    if(isFocusing){
+      this.isFocused = true;
+    } else{
+      this.isFocused = false;
+    }
   }
 
 }

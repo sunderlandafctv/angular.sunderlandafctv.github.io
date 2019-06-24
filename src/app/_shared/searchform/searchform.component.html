@@ -1,13 +1,14 @@
-<form class="wrapper" (ngSubmit)="search()" #searchForm="ngForm">
+<form class="wrapper" (ngSubmit)="search()" #searchForm="ngForm" [ngClass]="{focus: isFocused}">
 
   <input
     class="searchInput" 
     type="text" 
     name="queryString"
-    placeholder="Search {{sq.searchType}}s ..."
+    placeholder="Search"
     [(ngModel)]="sq.queryString"
+    (focus)="focusHandler(true)" 
+    (focusout)="focusHandler(false)"
   >
-  TODO: remove this: {{sq.queryString}}
 
   <button class="submit" type="submit" required>
     <i class="fas fa-search"></i>

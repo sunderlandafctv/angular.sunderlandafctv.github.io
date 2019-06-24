@@ -1,0 +1,32 @@
+@import '../../../css/colours';
+
+.loader{
+    height: 144px;
+    width: 144px;
+    margin: 0 auto;
+}
+
+.accent{
+    color: $colour_red
+}
+
+.card{
+    .title{
+        margin-bottom: 15px
+    }
+    .text-wrapper{
+        width: calc(100% - 174px);
+        float: right
+    }
+    .text{
+        margin-top: 15px;
+        text-align: left
+    }
+}
+
+.noPlayers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}

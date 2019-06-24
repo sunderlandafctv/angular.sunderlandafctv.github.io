@@ -6,19 +6,20 @@ import { PapaParseModule } from 'ngx-papaparse';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './safc.component';
 
+import { SharedModule } from './_shared/_shared.module';
+
 //search stuff
-import { SearchPageComponent } from './search/searchpage/searchpage.component'
+import { SearchPageComponent } from './search/searchpage/searchpage.component';
 import { SearchNavComponent } from './search/searchnav/searchnav.component';
-import { SearchPageNoResultsComponent } from './search/searchpagenoresults/searchpagenoresults.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
     SearchNavComponent,
-    SearchPageNoResultsComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     PapaParseModule,
     HttpClientModule,

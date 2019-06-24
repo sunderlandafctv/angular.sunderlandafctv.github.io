@@ -9,7 +9,6 @@ $colour_searchGrey: #c2c2c2;
     border: 1px solid $colour_searchGrey;
     text-align: center;
     transition: all .2s ease-in-out;
-    margin-right: 15px;
     &.focus{
         border-color: $colour_red
     }
