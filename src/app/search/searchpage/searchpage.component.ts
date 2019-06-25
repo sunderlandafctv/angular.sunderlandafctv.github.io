@@ -14,6 +14,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   constructor(private fetch: HttpClient, private route: ActivatedRoute, private papa:Papa){}
 
+  noQuery: Boolean = false;
   searchQuery: String;
   playerData: Array<any>;
   matchedPlayerList: Array<any> = []; //search results
@@ -24,8 +25,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.searchQuery = this.route.snapshot.params.query;
-
-
     this.fetchSubscription = this.fetch.get("https://www.googleapis.com/drive/v2/files/1Sgoayrj1r7aLMYx6T4VoNpzmJWI6v1aA?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media",{"responseType":"text"}).subscribe(d => {
       this.papa.parse(d,{
         header: true,
@@ -35,8 +34,12 @@ export class SearchPageComponent implements OnInit, OnDestroy {
           this.playerData = result.data;
 
           this.routeSubscription = this.route.params.subscribe(params => {
-            this.searchQuery = params["query"];
-            this.search(params["query"]);
+            if(!params["query"]){
+              this.noQuery = true;
+            } else{
+              this.searchQuery = params["query"];
+              this.search(params["query"]);
+            }
           });
 
         }

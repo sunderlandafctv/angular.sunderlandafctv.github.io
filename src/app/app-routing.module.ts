@@ -22,6 +22,7 @@ const routes: Routes = [
     path: 'search',
     children: [
       { path: '', component: SearchNavComponent, outlet: "nav" },
+      { path: '', component: SearchPageComponent },
       { path: ':query', component: SearchPageComponent }
     ]
   },

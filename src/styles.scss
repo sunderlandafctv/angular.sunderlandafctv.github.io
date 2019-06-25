@@ -36,7 +36,6 @@ main{
     color: $colour_white;
     border-radius: 3px;
     text-align: center;
-    line-height: 2;
     white-space:nowrap
 }
 
@@ -137,7 +136,7 @@ main{
 //IFRAME VIDEO CARD
 .card.video {
     width: 100%;
-    background:url(assets/loader.gif) center center no-repeat;
+    background:url(assets/loader_iframe.gif) center center no-repeat;
     iframe {
         padding: 0 15px;
         width: calc(100% - 30px);
