@@ -31,7 +31,8 @@ export class VideoService {
       var playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
       if(playerPlaylist){
         this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&playlistId=${playerPlaylist.id}&maxResults=50&part=snippet`).subscribe(d => {
-          for (let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);
+        Array.from(d["items"])
+        for (let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);
           this.playerVideos = d["items"];
           this.Observer.next(d["items"]);
         })

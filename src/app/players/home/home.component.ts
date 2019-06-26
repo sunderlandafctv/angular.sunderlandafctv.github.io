@@ -20,26 +20,40 @@ export class HomeComponent implements OnInit {
   randomVideos: Array<any>;
 
   ngOnInit() {
-
-    Array.prototype.test = function(){
-      console.log("test")
-    }
-
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
-      
       this.playerData = d;
       this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => {
-        console.log(
-          d, isArray(d)
-        )
-        d.test;
-        // d.forEach(element => {
-        //   if(element.snippet.title.contains("Top 10")){
-        //     console.log(element)
-        //   }
-        // });
-      });
 
+        var videos = {
+          Compilation: d["find"](e => {
+            if(e.snippet.title == `${this.playerData.Name} Compilation`) return e;
+          }),
+          Top10: d["find"](e => {
+            if(e.snippet.title.includes("Top")) return e;
+          }),
+          Random: [
+            d["find"](e => {
+              if(e.snippet.title !== videos.Compilation && e.snippet.title !== videos.Top10) return e;
+            }),
+            d["find"](e => {
+              if(e.snippet.title !== videos.Random[0] && e.snippet.title !== videos.Compilation && e.snippet.title !== videos.Top10) return e;
+            })
+          ]
+        }
+
+        console.log(
+          videos
+        )        
+        
+        // playerComp(d).then(e => {
+        //   var f = e["Random"], random = [
+        //       f, d["find"](e => {if(e.snippet.title!=f.snippet.title&&e.snippet.title!=`${this.playerData.Name} Top 10 Goals`&&e.snippet.title!=`${this.playerData.Name} compilation`){return e;}})
+        //   ]
+        //   e["Compilation"] ? console.log(e["Compilation"].snippet.resourceId.videoId) : console.log(random[0].snippet.resourceId.videoId);
+        //   e["Top 10"] ? console.log(e["Top 10"].snippet.resourceId.videoId) : console.log(random[1].snippet.resourceId.videoId);
+        // });
+
+      });
     });
   }
 
