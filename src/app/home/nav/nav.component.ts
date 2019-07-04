@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { TriangleService } from '../../triangle.service'
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'safc-home-nav',
@@ -11,15 +13,22 @@ import { Subscription } from 'rxjs';
 
 export class NavComponent implements OnInit, OnDestroy {
 
-  constructor(private triangle: TriangleService, private router: Router){}
+  constructor(private triangle: TriangleService, private router: Router, private titleService: Title, private route: ActivatedRoute){}
 
-  hamburgerActive: Boolean;
+  hamburgerActive: Boolean = false;
   triangleActive: Boolean;
 
   triangleSubscription: Subscription;
   routerSubscription: Subscription;
 
+  private capitaliseFirst(string){
+      return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   ngOnInit(){
+    //set page title
+    this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
+    document.querySelector("body").classList.remove("noScroll");
     //check if triangle is enabled or disabled
     this.triangleSubscription = this.triangle.triangleEnabled.subscribe((bool: Boolean) => {
       this.triangleActive = bool;
@@ -27,6 +36,8 @@ export class NavComponent implements OnInit, OnDestroy {
     //look for url changes
     this.routerSubscription = this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {
+        //set page title
+        this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
         //show triangle if going to home page
         if(event.url != "/home"){
           this.triangle.hideTriangle();

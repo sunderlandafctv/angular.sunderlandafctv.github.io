@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-searchnav',
@@ -6,11 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./searchnav.component.scss']
 })
 
-export class SearchNavComponent {
+export class SearchNavComponent implements OnInit {
 
   constructor() { }
 
-  hamburgerActive: Boolean;
+  hamburgerActive: Boolean = false;
+
+  ngOnInit(){
+    document.querySelector("body").classList.remove("noScroll");
+  }
 
   //toggle mobile navigation page
   toggleHamburger(){

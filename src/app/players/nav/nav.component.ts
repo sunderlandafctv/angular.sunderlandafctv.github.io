@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { VideoService } from '../video.service';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -6,12 +9,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent {
+export class NavComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private videodata: VideoService, private titleService: Title, private route: ActivatedRoute){}
 
-  hamburgerActive: Boolean;
+  hamburgerActive: Boolean = false;
 
+  ngOnInit(){
+    this.titleService.setTitle(`${this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")} | SUNDERLANDAFC.TV`);
+    this.videodata.resetPlayerVideos()
+    document.querySelector("body").classList.remove("noScroll");
+  }
+
+  ngOnDestroy(){
+    this.videodata.resetPlayerVideos()
+  }
+  
   //toggle mobile navigation page
   toggleHamburger(){
     this.hamburgerActive = !this.hamburgerActive;

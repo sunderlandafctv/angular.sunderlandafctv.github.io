@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PlayerService } from '../player.service'
@@ -10,7 +10,7 @@ import { VideoService } from '../video.service'
   styleUrls: ['./videos.component.scss']
 })
 
-export class VideosComponent implements OnInit {
+export class VideosComponent implements OnInit, OnDestroy {
 
   constructor(private playerdata: PlayerService, private videodata: VideoService, private route: ActivatedRoute) {}
 
@@ -20,8 +20,11 @@ export class VideosComponent implements OnInit {
   ngOnInit() {
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
       this.playerData = d;
-      this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => this.playerVideos = d )
+      this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => this.playerVideos = d["items"] )
     });
   }
 
+  ngOnDestroy(){
+    
+  }
 }

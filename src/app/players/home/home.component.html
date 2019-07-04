@@ -1,7 +1,8 @@
-<div *ngIf="!playerData" class="wrapper" style="justify-content: center;">
+<div *ngIf="!playerData || !randomVideos" class="wrapper" style="justify-content: center;">
   <img class="loader" src="../../../assets/loader.gif">
 </div>
-<div *ngIf="playerData" class="card long">
+
+<div *ngIf="playerData && randomVideos" class="card long">
   <img class="image left" src="../../../assets/playerprofiles/{{playerData.ID}}.png">
   <div class="textWrapper">
       
@@ -16,4 +17,12 @@
       </div>
 
   </div>
+</div>
+
+<h1 *ngIf="playerData && randomVideos" class="title">Recommended videos of {{playerData.Name}}</h1>
+
+<div *ngIf="playerData && randomVideos" class="wrapper">
+  <article *ngFor="let i of randomVideos" class="card video">
+    <iframe [src]="i.URL"></iframe>
+  </article>
 </div>

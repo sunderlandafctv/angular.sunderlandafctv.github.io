@@ -11,9 +11,14 @@ export class VideoService {
 
   constructor(private fetch: HttpClient, private sanitizer: DomSanitizer){}
 
-  playerVideos: Array<any>;
+  playerVideos = undefined;
   noVideos: Boolean = false;
   private Observer: any;
+
+  resetPlayerVideos(){
+    this.playerVideos = undefined;
+    return true;
+  }
 
   getPlayerVideos(playerName: String){
     if(this.playerVideos){
@@ -33,8 +38,8 @@ export class VideoService {
         this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&playlistId=${playerPlaylist.id}&maxResults=50&part=snippet`).subscribe(d => {
         Array.from(d["items"])
         for (let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);
-          this.playerVideos = d["items"];
-          this.Observer.next(d["items"]);
+          this.playerVideos = d;
+          this.Observer.next(d);
         })
       }
     })
