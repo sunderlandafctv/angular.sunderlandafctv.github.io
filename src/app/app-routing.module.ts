@@ -5,6 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchPageComponent } from './search/searchpage/searchpage.component'
 import { SearchNavComponent } from './search/searchnav/searchnav.component'
 
+//404 stuff
+import { PageNotFoundNavComponent } from './404/page-not-found-nav/page-not-found-nav.component';
+import { PageNotFoundComponent } from './404/page-not-found/page-not-found.component'
+
 const routes: Routes = [
   {
     path: '',
@@ -27,8 +31,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '',
+    path: '404',
+    children: [
+      { path: '', component: PageNotFoundNavComponent, outlet: "nav" },
+      { path: '', component: PageNotFoundComponent }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '404',
     pathMatch: 'full'
   }
 ];

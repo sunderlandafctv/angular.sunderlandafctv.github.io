@@ -12,11 +12,17 @@ import { SharedModule } from './_shared/_shared.module';
 import { SearchPageComponent } from './search/searchpage/searchpage.component';
 import { SearchNavComponent } from './search/searchnav/searchnav.component';
 
+//
+import { PageNotFoundComponent } from './404/page-not-found/page-not-found.component';
+import { PageNotFoundNavComponent } from './404/page-not-found-nav/page-not-found-nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
     SearchNavComponent,
+    PageNotFoundComponent,
+    PageNotFoundNavComponent
   ],
   imports: [
     SharedModule,
