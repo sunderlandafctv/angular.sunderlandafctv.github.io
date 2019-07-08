@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
       console.log(d)
       if(!d){
-        this.router.navigate(['/product-list'], { queryParams: { src: "noplayer" } });
+        this.router.navigate(['/404'], { queryParams: { src: "noplayer" } });
       } else{
         this.playerData = d;
         this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => {

@@ -1,6 +1,21 @@
+@import '../../../css/colours';
+
 .wrapper{
     flex-direction: column;
 }
-.title{
+.error404{
     font-size: 7em
+}
+
+.noSeason{
+    .title{
+        font-size: 27px;
+    }
+    a{
+        color: $colour_black;
+        transition: color .1s;
+        &:hover{
+            color: $colour_red;
+        }
+    }
 }

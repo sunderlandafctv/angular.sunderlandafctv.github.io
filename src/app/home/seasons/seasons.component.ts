@@ -12,4 +12,9 @@ export class SeasonsComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleLinks(e){
+    var element = e.target;
+    element.tagName == "BUTTON" ? element.parentNode.parentNode.classList.toggle("active") : element.parentNode.parentNode.parentNode.classList.toggle("active")
+  }
+
 }
