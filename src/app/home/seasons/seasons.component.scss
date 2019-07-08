@@ -1,0 +1,8 @@
+.dropdownToggle{width:100%;display:flex;align-items:center;}
+.dropdownToggle p{margin-left:10px}
+.dropdownToggle button{background:transparent;border:none;cursor:pointer;margin-left:auto;margin-right:10px;font-size:1.5em;transition:color .1s;}
+.dropdownToggle button i{transition:transform .1s;}
+.dropdownToggle button:focus{color:var(--accent);outline:none;}
+.dropdownToggle button:hover, .dropdownContent a:hover{color:var(--accent);}
+.dropdownContent{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;position:absolute;background:#fff;max-height:0;width:100%;overflow:hidden;margin:0 auto;border-radius:0 0 5px 5px;transition:max-height .1s,padding .1s}
+.dropdownContent a{width:50%;margin:10px 0;transition:color .1s;}
