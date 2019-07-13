@@ -20,9 +20,10 @@ export class PageNotFoundComponent implements OnInit {
     '1970-1971','1971-1972','1972-1973','1973-1974','1974-1975','1975-1976','1976-1977','1977-1978','1978-1979','1979-1980',
     '1980-1981','1981-1982','1982-1983','1983-1984','1984-1985','1985-1986','1986-1987','1987-1988','1988-1989','1989-1990',
     '1990-1991','1991-1992','1992-1993','1993-1994','1994-1995','1995-1996','1996-1997','1997-1998','1998-1999','1999-2000']
-
   seasons: Array<String> = [];
-  decades;
+
+  decadeList = ['Pre1950s','1950s','1960s','1970s','1980s','1990s']
+  decades: Array<String> = [];;
 
   ngOnInit(){
     this.route.queryParams.subscribe(params => {
@@ -31,26 +32,20 @@ export class PageNotFoundComponent implements OnInit {
       if(pmtext == "noplayer") this.errorText = "player"
       else if(pmtext == "noseason"){
         this.errorText = "season"
-
         this.seasonsList.forEach(e => {
           var similarity = this.similarity(e,params['d']);
-          if(similarity > 0.8){
-
-            // if(e.substr(0,3) == "195")
-            // else if(e.substr(0,3) == "196")
-            // else if(e.substr(0,3) == "197")
-            // else if(e.substr(0,3) == "198")
-            // else if(e.substr(0,3) == "199")
-            // else{
-
-            // }
-
+          if(similarity >= 0.8){
             this.seasons.push(e);
-            console.log(e)
-
           }
         })
-
+      } else if(pmtext == "nodecade"){
+        this.errorText = "decade"
+        this.decadeList.forEach(e => {
+          var similarity = this.similarity(e,params['d']);
+          if(similarity >= 0.8){
+            this.decades.push(e);
+          }
+        })
       }
       else {
         this.router.navigate([], {

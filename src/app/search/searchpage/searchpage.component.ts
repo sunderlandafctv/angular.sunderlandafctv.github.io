@@ -25,7 +25,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.searchQuery = this.route.snapshot.params.query;
-    this.fetchSubscription = this.fetch.get("https://www.googleapis.com/drive/v2/files/1Sgoayrj1r7aLMYx6T4VoNpzmJWI6v1aA?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media",{"responseType":"text"}).subscribe(d => {
+    this.fetchSubscription = this.fetch.get("https://www.googleapis.com/drive/v3/files/1_sL4j1cwhhK_KyfjQoEX3rgroyaV0KNQOcaWEu5-ICo/export?mimeType=text%2Fcsv&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
       this.papa.parse(d,{
         header: true,
         complete: result => {

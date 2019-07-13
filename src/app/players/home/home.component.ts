@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
-      console.log(d)
       if(!d){
         this.router.navigate(['/404'], { queryParams: { src: "noplayer" } });
       } else{

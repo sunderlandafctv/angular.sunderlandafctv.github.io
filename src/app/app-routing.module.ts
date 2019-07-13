@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./players/players.module').then(mod => mod.PlayersModule)
   },
   {
+    path: 'seasons/:decade',
+    loadChildren: () => import('./decade/decade.module').then(mod => mod.DecadeModule)
+  },
+  {
     path: 'seasons/:decade/:season',
     loadChildren: () => import('./season/season.module').then(mod => mod.SeasonModule)
   },

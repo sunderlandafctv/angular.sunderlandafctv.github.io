@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { VideoService } from '../video.service';
+import { PlayerService } from '../player.service'
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,18 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 
 export class NavComponent implements OnInit, OnDestroy {
 
-  constructor(private videodata: VideoService, private titleService: Title, private route: ActivatedRoute){}
+  constructor(private videodata: VideoService, private titleService: Title, private route: ActivatedRoute, private playerdata: PlayerService){}
 
   hamburgerActive: Boolean = false;
 
   ngOnInit(){
     this.titleService.setTitle(`${this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")} | SUNDERLANDAFC.TV`);
-    this.videodata.resetPlayerVideos()
-    document.querySelector("body").classList.remove("noScroll");
+    this.videodata.resetPlayerVideos();
+    this.playerdata.resetPlayerData();
+    document.querySelector("body").classList.remove("noScroll")
   }
 
   ngOnDestroy(){
-    this.videodata.resetPlayerVideos()
+    this.videodata.resetPlayerVideos();
+    this.playerdata.resetPlayerData()
   }
   
   //toggle mobile navigation page

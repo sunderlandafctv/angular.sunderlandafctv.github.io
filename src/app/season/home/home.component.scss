@@ -1,0 +1,6 @@
+@import '../../../css/colours';
+
+.topScorer a:hover{
+    color: $colour_red;
+    transition: color .1s
+}

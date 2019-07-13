@@ -1,3 +1,37 @@
-<p>
-  home works!
-</p>
+<div *ngIf="!randomVideos && !topPlayers && !seasonData" class="wrapper" style="justify-content: center;">
+  <img class="loader" src="../../../assets/loader.gif">
+</div>
+
+<article *ngIf="seasonData && randomVideos && topPlayers" class="card long">
+  <img class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.png" style="width: auto;">
+  <div class="textWrapper">
+      <h1 class="title accent">{{season}}</h1>
+      <h2 class="subtitle">Finished {{seasonData["League Position"]}} in League {{seasonData.League}}</h2>
+      <p class="text">{{seasonData.Description}}</p>     
+      <div class="wrapper">
+        <p class="topScorer">Top Scorer: <a target="_blank" routerLink="/players/{{seasonData['Top scorer'].replace(' ','')}}">{{seasonData["Top scorer"]}}</a></p>
+        <p>Highest Attendance: <span>{{seasonData["Highest Attendance"]}}</span></p>
+        <a class="label" target="_blank" href="http://www.thestatcat.co.uk/Season.aspx?SeasonID={{seasonData.ID}}">View All Statistics</a>
+      </div>
+  </div>
+</article>
+
+<h1 *ngIf="seasonData && randomVideos && topPlayers && season.includes('s')" class="title">Stars of the {{season}}!</h1>
+<h1 *ngIf="seasonData && randomVideos && topPlayers && !season.includes('s')" class="title">Stars of the {{season}} season!</h1>
+
+<div *ngIf="seasonData && randomVideos && topPlayers" class="wrapper">
+  <a *ngFor="let player of topPlayers" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
+    <img class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    <h1 class="title">{{player.Name.split(' ')[0]}}<br>{{player.Name.split(' ')[1]}}</h1>
+    <span class="label">{{player.Appearances}} games, {{player.Goals}} goals</span>
+  </a>
+</div>
+
+<h1 *ngIf="seasonData && randomVideos && topPlayers && season.includes('s') && this.randomVideos.length != 0" class="title">Recommended videos of the {{season}}!</h1>
+<h1 *ngIf="seasonData && randomVideos && topPlayers && !season.includes('s') && this.randomVideos.length != 0" class="title">Recommended videos of the {{season}} season!</h1>
+
+<div *ngIf="seasonData && randomVideos && topPlayers && this.randomVideos.length != 0" class="wrapper">
+  <article *ngFor="let i of randomVideos" class="card video">
+    <iframe [src]="i.URL"></iframe>
+  </article>
+</div>

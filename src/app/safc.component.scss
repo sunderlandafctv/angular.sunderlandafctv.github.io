@@ -1,5 +1,9 @@
 @import "../css/colours";
 
+main{
+    min-height: calc(100vh - 150px);
+}
+
 footer{
     min-height: 150px;
     width: 100%;

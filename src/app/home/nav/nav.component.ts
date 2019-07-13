@@ -19,7 +19,6 @@ export class NavComponent implements OnInit, OnDestroy {
   triangleActive: Boolean;
 
   triangleSubscription: Subscription;
-  routerSubscription: Subscription;
 
   private capitaliseFirst(string){
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,7 +33,7 @@ export class NavComponent implements OnInit, OnDestroy {
       this.triangleActive = bool;
     });
     //look for url changes
-    this.routerSubscription = this.router.events.subscribe((event: Event) => {
+    this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {
         //set page title
         this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
@@ -56,7 +55,6 @@ export class NavComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.triangleSubscription.unsubscribe();
-    this.routerSubscription.unsubscribe();
   }
 
   //toggle mobile navigation page

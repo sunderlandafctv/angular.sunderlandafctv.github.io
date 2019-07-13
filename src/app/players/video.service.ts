@@ -12,7 +12,6 @@ export class VideoService {
   constructor(private fetch: HttpClient, private sanitizer: DomSanitizer){}
 
   playerVideos = undefined;
-  noVideos: Boolean = false;
   private Observer: any;
 
   resetPlayerVideos(){
