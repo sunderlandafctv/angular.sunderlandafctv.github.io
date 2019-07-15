@@ -1,6 +1,15 @@
 <div *ngIf="!playerVideos" class="wrapper" style="justify-content: center;">
     <img class="loader" src="../../../assets/loader.gif">
 </div>
-<div *ngIf="playerVideos" class="wrapper multiLine">
+
+<div *ngIf="playerVideos && playerVideos != 'Player videos not found'" class="wrapper multiLine">
   <article *ngFor="let i of playerVideos" class="card video"><iframe [src]="i.URL"></iframe></article>
 </div>
+
+<article *ngIf="playerVideos == 'Player videos not found'" class="card long">
+  <div class="textWrapper">
+    <h1 class="title accent">Sorry, no videos found</h1>
+    <p class="text">If you know of any videos featuring this player, email us or leave a comment on YouTube.</p>
+    <p class="email"><a href="mailto:hello@sunderlandafc.tv" target="_blank"><strong class="accent">hello@sunderlandafc.tv</strong></a></p>
+  </div>
+</article>

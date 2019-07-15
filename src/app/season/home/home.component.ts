@@ -21,22 +21,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(){
     this.season = this.router.url.split("/")[3];
     
-    this.seasondata.getAllSeasonData(this.season).subscribe(d => {
+    this.seasondata.getAllSeasonData(this.season).subscribe(
+      d => {
+        if(d["League Position"].substr(-1) == ".") d["League Position"] = d["League Position"].slice(0, -1);
         this.seasonData = d
-      },
-      //TODO remove after all seasons are in the CSV
-      error => {
-        console.error('Error', error);
-        this.seasonData = {
-          "Description":"",
-          "FA Cup":"",
-          "Highest Attendance":"",
-          "ID":"",
-          "League":"",
-          "League Position":"",
-          "Season":"",
-          "Top scorer":""
-        }
       }
     )
 

@@ -27,10 +27,11 @@ export class DataService {
     }
   }
   private fetchAllSeasonData(season){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/1vR79T34cCBKXMqwYyRCaDIonsdjBIKH0Sb4_bVRJZQA/export?mimeType=text%2Fcsv&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
-      this.papa.parse(d,{
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: 'text'}).subscribe(d => {
+    this.papa.parse(d,{
         header: true,
         complete: result => {
+          result.data.pop(); //TODO remove if/when CSV data comes back with 0 errors
           var seasonData = result.data.filter(a => a.Season === season)[0]
           this.seasonData = seasonData;
           if(seasonData) this.seasonObserver.next(seasonData);

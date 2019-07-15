@@ -20,7 +20,10 @@ export class VideosComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
       this.playerData = d;
-      this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => this.playerVideos = d["items"] )
+      this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(
+        d => this.playerVideos = d["items"],
+        e => this.playerVideos = e
+      )
     });
   }
 

@@ -1,4 +1,5 @@
-@import "css/colours","css/variables";
+@import "css/colours",
+        "css/variables";
 
 //RESET
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a{text-decoration:none}
@@ -23,7 +24,6 @@ html{
 
 //MAIN WRAPPER
 main{
-    min-height: calc(100vh - 280px);
     width: calc(100% - 10px);
     margin: 0 auto
 }
@@ -57,7 +57,6 @@ main{
     justify-content: space-between; 
     flex-wrap: wrap;
     margin: 20px auto;
-
     .card{
         width: 100%
     }
@@ -75,49 +74,40 @@ main{
     padding: 15px 0;
     border: none;
     text-align: center;
-
     &.long {
         width: 100% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-
         .subtitle {
             text-align: center;
             color: $colour_red;
             margin: 0 auto 15px
         }
-
         .textWrapper{
             width: calc(100% - 30px);
         }
-
         .wrapper{
             flex-direction: column;
-
             &:last-child{
                 margin: 10px 0 0 0;
             }
-
             *{
                 margin: 10px 0;
             }
         }
     
     }
-
     .title {
         color: $colour_black;
         font-size: 30px;
         margin: 25px auto 20px
     }
-
     .image {
         border: none;
         border-radius: 5px;
         object-fit: cover;
         object-position: center;
-    
         &.left {
             display: inline-block;
             height: 144px;
@@ -129,9 +119,7 @@ main{
         }
 
     }
-
 }
-
 
 //IFRAME VIDEO CARD
 .card.video {
@@ -142,5 +130,22 @@ main{
         width: calc(100% - 30px);
         height:325px;
         border:none
+    }
+}
+
+/*
+    DESKTOP CSS
+*/
+
+@media only screen and (min-width: 900px) {
+    //CARD WRAPPER
+    .wrapper{
+        .card {
+            width: 33%
+        }
+        .video {
+            margin: 10px;
+            width: calc(50% - 20px);
+        }
     }
 }

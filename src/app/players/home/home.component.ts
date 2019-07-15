@@ -23,9 +23,10 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/404'], { queryParams: { src: "noplayer" } });
       } else{
         this.playerData = d;
-        this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(d => {
-          this.playerdata.getRandomVideos(d["items"]).subscribe(videos => this.randomVideos = videos );
-        });
+        this.videodata.getPlayerVideos(this.playerData["Name"]).subscribe(
+          d => this.playerdata.getRandomVideos(d["items"]).subscribe(videos => this.randomVideos = videos),
+          e => this.randomVideos = e
+        );
       }
     });
   }

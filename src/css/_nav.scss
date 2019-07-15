@@ -71,7 +71,7 @@ header {
         	font-size: 20px; 
 			text-align: center;
 			transition: color .1s;
-			margin-top: 50px;
+			margin-top: 40px;
 			&.active {
 				color: $colour_red;
 			}
@@ -97,7 +97,7 @@ header {
 //styling the animated hamburger
 .hamburger {
     height: 100%;
-    width: 100px;
+    width: 65px;
 	padding: 15px;
 	cursor: pointer;
 	transition-property: opacity, filter;
@@ -187,3 +187,40 @@ header {
 		transform: translate3d(0, -20px, 0) rotate(-90deg)
 	}
 }
+
+@media only screen and (min-width: 900px) {
+	.logo strong:after {
+		content: "SUNDERLANDAFC" !important;
+	}
+
+	nav{
+		margin-left: auto !important;
+		width: 50%;
+	}
+
+	nav .links{
+		position: initial !important;
+		height: auto !important;
+		flex-direction: row !important;
+		align-items: center !important;
+		justify-content: space-around !important;
+		a {
+			margin-top: 0px !important;
+		}
+	}
+
+    .hamburger {
+        display: none;
+    }
+}
+
+// display: flex;
+// height: 0;
+// overflow: hidden;
+// flex-direction: column;
+// justify-content: flex-start;
+// position: absolute;
+// top: 100px;
+// left: 0;
+// background: inherit;
+// z-index:999; 

@@ -19,9 +19,8 @@
   </div>
 </div>
 
-<h1 *ngIf="playerData && randomVideos" class="title">Recommended videos of {{playerData.Name}}</h1>
-
-<div *ngIf="playerData && randomVideos" class="wrapper">
+<h1 *ngIf="playerData && randomVideos && randomVideos != 'Player videos not found'" class="title">Recommended videos of {{playerData.Name}}</h1>
+<div *ngIf="playerData && randomVideos && randomVideos != 'Player videos not found'" class="wrapper">
   <article *ngFor="let i of randomVideos" class="card video">
     <iframe [src]="i.URL"></iframe>
   </article>

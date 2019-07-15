@@ -1,7 +1,7 @@
 @import "../css/colours";
 
 main{
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 280px);
 }
 
 footer{
@@ -32,5 +32,29 @@ footer{
                 text-decoration: none;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    main{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    main{
+        width: 85%;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    main{
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    main{
+        width: 75%;
     }
 }

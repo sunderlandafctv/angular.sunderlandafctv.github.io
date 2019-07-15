@@ -38,16 +38,16 @@ export class VideoService {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
           if(playerPlaylist) resolve(playerPlaylist)
-          else if(d["nextPageToken"]) secondaryRequest()
+          else if(d["nextPageToken"]) secondaryRequest(this.fetch)
           else reject()
       });
       //if player playlist not found in first 50 playlists
-      var secondaryRequest = function() {
-        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`).subscribe(d => {
+      var secondaryRequest = function(fetch) {
+        fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`).subscribe(d => {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
           if(playerPlaylist) resolve(playerPlaylist)
-          else if(d["nextPageToken"]) secondaryRequest()
+          else if(d["nextPageToken"]) secondaryRequest(fetch)
           else reject()
         })
       };
@@ -61,7 +61,7 @@ export class VideoService {
       })
     }).catch(e => {
       //player not found redirect
-      this.Observer.next();
+      this.Observer.error("Player videos not found");
     })
   }
 
