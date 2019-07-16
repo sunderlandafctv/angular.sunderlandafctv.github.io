@@ -1,6 +1,24 @@
+@import '../../../css/variables';
+
 .loader{
     margin: 0 auto
 }
+
 .card{
     width: 100%
+}
+
+@media only screen and (min-width: $media_tablet) {
+    //CARD WRAPPER
+    .wrapper{
+        .card{
+            width: calc(50% - 5px)
+        }
+    }
+}
+
+@media only screen and (min-width: $media_tablet) and (max-width: $media_largelaptop){
+    .image.left {
+        float: left !important;
+    }
 }

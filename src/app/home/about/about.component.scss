@@ -1,21 +1,22 @@
 @import "../../../css/variables", "../../../css/colours";
 
 .desc {
-    margin: 0 0 15px 0
+    margin: 15px
 }
 
 .aboutImg {
-    width: 100%;
+    width: calc(100% - 30px);
     height: 50vh;
     border-radius: 5px;
-    margin: 15px 0;
+    margin: 15px;
     object-fit: cover
 }
 
 .aboutLabel {
     width: 550px;
     white-space: initial; 
-    margin: 15px auto 30px auto
+    margin: 15px auto 30px auto;
+    line-height: 1.5;
 }
 
 .fairUseLink {

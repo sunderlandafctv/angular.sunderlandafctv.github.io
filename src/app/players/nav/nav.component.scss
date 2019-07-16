@@ -1,1 +1,8 @@
-@import "../../../css/nav";
+@import "../../../css/nav",
+        "../../../css/variables";
+
+@media only screen and (max-width: $media_tablet) {
+    safc-search {
+        margin-top: 20px
+    }
+}

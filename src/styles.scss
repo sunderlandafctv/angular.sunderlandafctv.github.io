@@ -137,7 +137,7 @@ main{
     DESKTOP CSS
 */
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: $media_tablet) {
     //CARD WRAPPER
     .wrapper{
         .card {
@@ -147,5 +147,17 @@ main{
             margin: 10px;
             width: calc(50% - 20px);
         }
+    }
+}
+
+@media only screen and (min-width: $media_tablet) and (max-width: $media_largelaptop){
+    .image.left {
+        float: none !important;
+    }
+}
+
+@media only screen and (max-width: $media_smallphone) {
+    .image.left {
+        float: none !important;
     }
 }

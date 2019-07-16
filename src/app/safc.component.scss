@@ -1,4 +1,5 @@
 @import "../css/colours";
+@import '../css/variables';
 
 main{
     min-height: calc(100vh - 280px);
@@ -35,25 +36,25 @@ footer{
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: $media_tablet) {
     main{
         width: 90%;
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: $media_smalllaptop) {
     main{
         width: 85%;
     }
 }
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: $media_largelaptop) {
     main{
         width: 80%;
     }
 }
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: $media_desktop) {
     main{
         width: 75%;
     }

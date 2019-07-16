@@ -1,4 +1,5 @@
 @import '../../../css/colours';
+@import '../../../css/variables';
 
 .card{
     padding: 0;
@@ -76,7 +77,7 @@
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: $media_tablet) {
     //CARD WRAPPER
     .card {
         width: calc(50% - 10px);

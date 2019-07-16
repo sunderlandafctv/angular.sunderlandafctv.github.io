@@ -1,0 +1,13 @@
+@import '../../../css/variables';
+
+@media only screen and (min-width: $media_tablet) {
+    .card.long {
+        padding: 0;
+        flex-direction: row;
+        .wrapper {
+            flex-direction: row;
+            width: auto;
+            justify-content: space-around;
+        }
+    }
+}
