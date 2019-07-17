@@ -1,24 +1,26 @@
 @import '../../../css/colours';
 
+//center loading icon
 .loader{
     margin: 0 auto
 }
 
+//remove backgeound from long card - specifically  the no videos found error
 .card.long {
     background: transparent;
     box-shadow: none;
     flex-direction: column;
     background: transparent;
-}
-
-p.email{
-    width: 100%;
-    display: block;
-    font-size: 1.1em;
-    padding: 5px;
-    line-height: 1.2;
-    a{
-        color: $colour_red;
-        text-decoration: none;
+    //link to email with new video
+    p.email{
+        width: 100%;
+        display: block;
+        font-size: 1.1em;
+        padding: 5px;
+        line-height: 1.2;
+        a{
+            color: $colour_red;
+            text-decoration: none;
+        }
     }
 }

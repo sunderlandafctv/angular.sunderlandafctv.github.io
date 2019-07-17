@@ -14,4 +14,5 @@ import { NavComponent } from './nav/nav.component';
     DecadeRoutingModule
   ]
 })
+
 export class DecadeModule { }

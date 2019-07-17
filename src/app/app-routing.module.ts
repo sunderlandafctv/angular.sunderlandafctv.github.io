@@ -10,22 +10,27 @@ import { PageNotFoundNavComponent } from './404/page-not-found-nav/page-not-foun
 import { PageNotFoundComponent } from './404/page-not-found/page-not-found.component'
 
 const routes: Routes = [
+  //home pages
   {
     path: '',
     loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)
   },
+  //specific player page
   {
     path: 'players/:player',
     loadChildren: () => import('./players/players.module').then(mod => mod.PlayersModule)
   },
+  //decade pages
   {
     path: 'seasons/:decade',
     loadChildren: () => import('./decade/decade.module').then(mod => mod.DecadeModule)
   },
+  //season pages (if season is specified)
   {
     path: 'seasons/:decade/:season',
     loadChildren: () => import('./season/season.module').then(mod => mod.SeasonModule)
   },
+  // /search page (routed to after using searchnavcomponent)
   { 
     path: 'search',
     children: [
@@ -34,6 +39,7 @@ const routes: Routes = [
       { path: ':query', component: SearchPageComponent }
     ]
   },
+  //404 page - component configuration
   {
     path: '404',
     children: [
@@ -41,6 +47,7 @@ const routes: Routes = [
       { path: '', component: PageNotFoundComponent }
     ]
   },
+  //404 page - redirecting unknown pages
   {
     path: '**',
     redirectTo: '404',
@@ -52,4 +59,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

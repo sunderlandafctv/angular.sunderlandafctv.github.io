@@ -1,74 +1,13 @@
-@import "../../../css/variables";
-@import "../../../css/colours";
+@import "../../../css/variables",
+        "../../../css/colours";
 
+//remove background and drop shadow from welcome card
 .card.long {
     background: transparent;
     box-shadow: none;
     flex-direction: column;
     background: transparent;
-}
-
-@keyframes fadingImages {
-    animation-timing-function: linear;
-    0% {
-        opacity: 1
-    }
-    16% {
-        opacity: 1
-    }
-    20% {
-        opacity: 0
-    }
-    100% {
-        opacity: 0
-    }
-}
-
-#fadingImages {
-    width: 144px;
-    margin: 15px 30px 30px 30px;
-
-    div {
-        height: 144px;
-        width: 144px;
-        animation: fadingImages 30s infinite;
-        position: absolute;
-        margin: auto;
-        border-radius: 5px;
-        opacity: 0;
-        object-fit: scale-down
-    }
-
-    :nth-of-type(1) {
-        animation-delay: 0;
-        background: url(../../../assets/logos/1.png) center / cover
-    }
-
-    :nth-of-type(2) {
-        animation-delay: 6s;
-        background: url(../../../assets/logos/2.png) center / cover
-    }
-    
-    :nth-of-type(3) {
-        animation-delay: 12s;
-        background: url(../../../assets/logos/3.png) center / cover
-    }
-
-    :nth-of-type(4) {
-        animation-delay: 18s;
-        background: url(../../../assets/logos/4.png) center / cover
-    }
-
-    :nth-of-type(5) {
-        animation-delay: 24s;
-        background: url(../../../assets/logos/5.png) center / cover
-    }
-
-}
-
-@media only screen and (min-width: $media_tablet) {
-    //CARD WRAPPER
-    .card.long{
+    @media only screen and (min-width: $media_tablet) {
         background: $colour_white;
         flex-direction: row;
         .image.left{
@@ -81,4 +20,57 @@
             }
         }
     }
+
+}
+
+//fade between safc logos
+@keyframes fadingImages {
+    animation-timing-function: linear; // <-- wierd liting things
+    0% { opacity: 1 }
+    16% { opacity: 1 }
+    20% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+//fading images wrapper
+#fadingImages {
+    width: 144px;
+    margin: 15px 30px 30px 30px;
+    //all images
+    div {
+        height: 144px;
+        width: 144px;
+        animation: fadingImages 30s infinite;
+        position: absolute;
+        margin: auto;
+        border-radius: 5px;
+        opacity: 0;
+        object-fit: scale-down
+    }
+    //1st img
+    :nth-of-type(1) {
+        animation-delay: 0;
+        background: url(../../../assets/logos/1.png) center / cover
+    }
+    //2nd img
+    :nth-of-type(2) {
+        animation-delay: 6s;
+        background: url(../../../assets/logos/2.png) center / cover
+    }
+    //3rd img
+    :nth-of-type(3) {
+        animation-delay: 12s;
+        background: url(../../../assets/logos/3.png) center / cover
+    }
+    //4th img
+    :nth-of-type(4) {
+        animation-delay: 18s;
+        background: url(../../../assets/logos/4.png) center / cover
+    }
+    //5th img
+    :nth-of-type(5) {
+        animation-delay: 24s;
+        background: url(../../../assets/logos/5.png) center / cover
+    }
+
 }

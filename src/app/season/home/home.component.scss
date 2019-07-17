@@ -1,6 +1,6 @@
 @import '../../../css/colours';
 
-.topScorer a:hover{
+.topScorer a:hover{ //becauce its a link.
     color: $colour_red;
     transition: color .1s
 }

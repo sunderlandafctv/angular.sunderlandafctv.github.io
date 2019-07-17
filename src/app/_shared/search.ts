@@ -1,7 +1,3 @@
 export class SearchRequest {
-    constructor(
-
-      public queryString: String,
-
-    ){}
+  constructor( public queryString: String ){}
 }

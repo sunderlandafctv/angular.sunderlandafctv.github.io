@@ -17,12 +17,14 @@ export class NavComponent implements OnInit, OnDestroy {
   hamburgerActive: Boolean = false;
 
   ngOnInit(){
-    this.titleService.setTitle(`${this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")} | SUNDERLANDAFC.TV`);
-    this.videodata.resetPlayerVideos();
-    this.playerdata.resetPlayerData();
+    this.titleService.setTitle(`${this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")} | SUNDERLANDAFC.TV`); //change page title to that of the player
+    //TODO related to services
+    this.videodata.resetPlayerVideos();  // BODGES MUST BE
+    this.playerdata.resetPlayerData();   //   ELIMINATED
     document.querySelector("body").classList.remove("noScroll")
   }
 
+  //unsubscribe from all observables - good practice to emulate in other places
   ngOnDestroy(){
     this.videodata.resetPlayerVideos();
     this.playerdata.resetPlayerData()

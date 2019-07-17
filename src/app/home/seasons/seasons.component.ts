@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-seasons',
   templateUrl: './seasons.component.html',
   styleUrls: ['./seasons.component.scss']
 })
-export class SeasonsComponent implements OnInit {
 
-  constructor() { }
+export class SeasonsComponent {
 
-  ngOnInit() {
-  }
+  constructor(){}
 
+  //really should be titled something like toggleSeasonLinks || TODO change this
   toggleLinks(e){
     var element = e.target;
-    element.tagName == "BUTTON" ? element.parentNode.parentNode.classList.toggle("active") : element.parentNode.parentNode.parentNode.classList.toggle("active")
+    element.tagName == "BUTTON" ? 
+      element.parentNode.parentNode.classList.toggle("active") : //if clicked on the outside wrapper
+      element.parentNode.parentNode.parentNode.classList.toggle("active") //if clicked on the inside arrow icon
   }
 
 }

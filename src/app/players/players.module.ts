@@ -16,4 +16,5 @@ import { VideosComponent } from './videos/videos.component';
     SharedModule
   ]
 })
+
 export class PlayersModule { }

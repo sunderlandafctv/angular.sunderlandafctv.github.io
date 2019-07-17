@@ -1,32 +1,32 @@
 @import "../../../css/variables", "../../../css/colours";
 
-.desc {
+//about text
+.text {
     margin: 15px
 }
 
-.aboutImg {
+//about image
+img {
     width: calc(100% - 30px);
     height: 50vh;
     border-radius: 5px;
     margin: 15px;
-    object-fit: cover
+    object-fit: cover;
+    @media only screen and (min-width: $media_largephone){
+        width: 80%;
+        margin: 15px 10%
+    }
 }
 
-.aboutLabel {
+//fair use
+.label {
     width: 550px;
     white-space: initial; 
     margin: 15px auto 30px auto;
     line-height: 1.5;
-}
-
-.fairUseLink {
-    color: $colour_white;
-    text-decoration: underline
-}
-
-@media only screen and (min-width: $media_largephone){
-    .aboutImg {
-        width: 80%;
-        margin: 15px 10%
+    //link to yt fairuse
+    .a {
+        color: $colour_white;
+        text-decoration: underline
     }
 }

@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
+
 export class NavComponent implements OnInit {
 
   constructor(private router: Router, private titleService: Title, private route: ActivatedRoute){}
@@ -15,8 +16,8 @@ export class NavComponent implements OnInit {
   hamburgerActive: Boolean = false;
 
   ngOnInit(){
-    this.titleService.setTitle(`${this.route.snapshot.params.season} | SUNDERLANDAFC.TV`);
-    var allowedSeasons = [
+    this.titleService.setTitle(`${this.route.snapshot.params.season} | SUNDERLANDAFC.TV`); //set document title
+    var allowedSeasons = [ //could be imported from a file but this is more efficient
       '1890s','1900s','1910s','1920s','1930s','1940s',
       '1950-1951','1951-1952','1952-1953','1953-1954','1954-1955','1955-1956','1956-1957','1957-1958','1958-1959','1959-1960',
       '1960-1961','1961-1962','1962-1963','1963-1964','1964-1965','1965-1966','1966-1967','1967-1968','1968-1969','1969-1970',

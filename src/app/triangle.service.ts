@@ -9,8 +9,8 @@ export class TriangleService {
 
   constructor(){}
 
-  triangleEnabled = new Observable<Boolean>(observer => this.triangleObserver = observer );
-  triangleObserver: Observer<Boolean>;
+  triangleEnabled: Observable<Boolean> = new Observable<Boolean>(observer => this.triangleObserver = observer );
+  private triangleObserver: Observer<Boolean>;
 
   showTriangle(){
     this.triangleObserver.next(true)

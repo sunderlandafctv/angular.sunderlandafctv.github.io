@@ -85,7 +85,6 @@ export class DataService {
       });
     }
   }
-
   private fetchSeasonPlayers(season:string){
     function isBetween(n,a,b)  {
       return (n - a) * (n - b) <= 0
@@ -113,7 +112,7 @@ export class DataService {
         if(isBetween(seasonYears.from, playerYears.from, playerYears.to) && isBetween(seasonYears.to, playerYears.from, playerYears.to)) result.push(player)
       });
     }
-    Array.from(result)
+    Array.from(result) //tbf i have no idea what this fn does except that it stops a couple of errors so there you go
     this.seasonPlayersObserver.next(result)
   }
 
@@ -132,7 +131,6 @@ export class DataService {
       });
     }
   }
-
   private fetchTopSeasonPlayers(d){
     var topScorers = [];
     d.sort((a, b) => b.Goals - a.Goals)
@@ -162,7 +160,7 @@ export class DataService {
     function isBetween(n,a,b)  {
       return (n - a) * (n - b) <= 0
     }
-    const seasons = {
+    const seasons = { //yt playlist ids for each "decade"
       "Pre":"PLiVty6-a8hTyIQnquz7JuJUbmptgl4k4X",
       "195":"PLiVty6-a8hTxkwNk7KNVCCiy5Q8r8pnn6",
       "196":"PLiVty6-a8hTxnKHpV0vERrl-TFI2JNI5e",
@@ -174,6 +172,7 @@ export class DataService {
     this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${decadePlaylistID}`).subscribe(d => {
       var results: Array<any> = [];
       if(decadePlaylistID == "PLiVty6-a8hTyIQnquz7JuJUbmptgl4k4X"){
+        //specific variable for the pre 1950s "decade" because the pre
         var decadeYears = {
           "from": Number(season.replace("s","")),
           "to": Number(season.replace("s","")) + 10
@@ -213,7 +212,7 @@ export class DataService {
       });
     }
   }
-
+  //appears elsewhere except now without identifying certain video titles
   private randomNumbers(arr){
     var maxNum = arr.length,
         rtnOne = 0, rtnTwo = 0;

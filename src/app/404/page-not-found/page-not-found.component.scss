@@ -1,12 +1,15 @@
-@import '../../../css/colours';
+@import "../../../css/colours";
 
 .wrapper{
     flex-direction: column;
 }
+
+//large 404 text
 .error404{
     font-size: 7em
 }
 
+//styling for specific 404 page content
 .noSeason, .noDecade{
     .title{
         font-size: 27px;

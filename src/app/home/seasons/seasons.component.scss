@@ -1,24 +1,28 @@
-@import '../../../css/colours';
-@import '../../../css/variables';
+@import "../../../css/colours",
+        "../../../css/variables";
 
 .card{
     padding: 0;
+    @media only screen and (min-width: $media_tablet) {
+        width: calc(50% - 10px);
+    }
     .image.center{
         width: calc(100% - 20px);
         height: 260px;
     }
 }
 
+//bottom of card - down arrow to "open" .seasonLinks
 .dropdownToggle{
     margin: 0 auto;
-    width: calc(100% - 20px);
+    width: calc(100% - 20px); //for margin purposes
     display: flex;
     align-items: center;
     padding: 10px 0;
-    .text{
+    .text{ //leftmost text
         margin-left: 5px
     }
-    .btn{
+    .btn{ //rightmost button
         background: transparent;
         border: none;
         cursor: pointer;
@@ -28,10 +32,10 @@
         font-size: 1.5em;
         transition: color .1s;
         i{
-            transition:transform .1s;
+            transition: transform .1s;
         }
         &:focus{
-            outline: none;
+            outline: none; //probably not good for acessability || TODO add meaningful focus property
         }
         &:hover{
             color: $colour_red;
@@ -39,6 +43,7 @@
     }
 }
 
+//card extention activaated/"dropped down" by the card.active selector
 .seasonLinks{
     display: flex;
     align-items: center;
@@ -62,6 +67,7 @@
     }
 }
 
+//if active class has been toggled by dropdowntoggle btn
 .card.active{
     border-radius: 5px 5px 0 0;
     transition-delay: 0s;
@@ -74,12 +80,5 @@
         padding: 0 0 15px;
         box-shadow: 0 7px 8px 0 rgba(0,0,0,.445);
         max-height: 500px
-    }
-}
-
-@media only screen and (min-width: $media_tablet) {
-    //CARD WRAPPER
-    .card {
-        width: calc(50% - 10px);
     }
 }

@@ -24,7 +24,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   routeSubscription: Subscription;
 
   ngOnInit(){
-    this.searchQuery = this.route.snapshot.params.query;
     this.fetchSubscription = this.fetch.get("https://www.googleapis.com/drive/v3/files/1_sL4j1cwhhK_KyfjQoEX3rgroyaV0KNQOcaWEu5-ICo/export?mimeType=text%2Fcsv&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
       this.papa.parse(d,{
         header: true,
@@ -34,9 +33,9 @@ export class SearchPageComponent implements OnInit, OnDestroy {
           this.playerData = result.data;
 
           this.routeSubscription = this.route.params.subscribe(params => {
-            if(!params["query"]){
+            if(!params["query"]){ //show search box if no query is present
               this.noQuery = true;
-            } else{
+            } else{ //otherwise continue
               this.searchQuery = params["query"];
               this.search(params["query"]);
             }
@@ -53,15 +52,14 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   }
 
   search(query: String){
-
+    //search for players using fuzzySet (npm package)    
     var searchResults = [],
-        fuzzySet = require('fuzzy'),
-        results = fuzzySet.filter(query, this.playerData, {extract: function(el){ return el.Name; }}).map(el => { return el.string; }).forEach(playerName => searchResults.push(this.playerData.filter(a => a.Name == playerName)[0]) );
+      fuzzySet = require('fuzzy'),
+      results = fuzzySet.filter(query, this.playerData, {extract: function(el){ return el.Name; }}).map(el => { return el.string; }).forEach(playerName => searchResults.push(this.playerData.filter(a => a.Name == playerName)[0]) );
 
+    //parse results
     this.matchedPlayerList = searchResults;
-
     this.noPlayers = this.matchedPlayerList.length==0 ? true : false;
-
   }
 
 }

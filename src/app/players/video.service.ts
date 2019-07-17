@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
@@ -11,14 +11,17 @@ export class VideoService {
 
   constructor(private fetch: HttpClient, private sanitizer: DomSanitizer){}
 
-  playerVideos = undefined;
-  private Observer: any;
+  playerVideos = undefined; //again could be private || TODO <-- that
+  private Observer: Observer<any>;
 
+  //again bodgey || TODO replace with ngOnDestroy call
   resetPlayerVideos(){
     this.playerVideos = undefined;
     return true;
   }
 
+  //find playlist with player name in all safctv yt playlists and return the videos in it
+  //maybe the most complicated (overcomplicated) fn in this entire project
   getPlayerVideos(playerName: String){
     if(this.playerVideos){
       return new Observable(observer => observer.next(this.playerVideos));
@@ -29,7 +32,6 @@ export class VideoService {
       });
     }
   }
-
   private fetchPlaylist(playerName: String){
     new Promise((resolve, reject) => {
       var playerPlaylist, pageToken;

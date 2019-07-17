@@ -1,6 +1,7 @@
 @import '../../../css/variables';
 
 @media only screen and (min-width: $media_tablet) {
+    //horizontal -> vertical flexbox conversions on small screens
     .card.long {
         padding: 0;
         flex-direction: row;

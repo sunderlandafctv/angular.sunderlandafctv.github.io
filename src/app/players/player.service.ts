@@ -11,16 +11,20 @@ export class PlayerService {
 
   constructor(private papa: Papa, private fetch: HttpClient){}
 
-  playerData: Array<any>;
-  randomVideos: Array<any>;
+  playerData: Array<any>;   //could be private? || TODO <-- that
+  randomVideos: Array<any>; //this one also
   private observer: Observer<Array<any>>;
 
+  //hella bodge || TODO replace this with an ngOnDestroy call
   resetPlayerData(){
     this.playerData = undefined;
     this.randomVideos = undefined;
     return true;
   }
 
+  /*
+    get then use papaparse to parse the data from google drive players csv
+  */
   getPlayerData(playerName: String){
     if(this.playerData){
       return new Observable(observer => observer.next(this.playerData.filter(a => a.Name === playerName)[0]));
@@ -31,19 +35,6 @@ export class PlayerService {
       });
     }
   }
-
-  getRandomVideos(arr){
-    if(this.randomVideos){
-      return new Observable(observer => observer.next(this.randomVideos));
-    } else{
-      return new Observable(observer => {
-        var random = this.randomNumbers(arr);
-        this.randomVideos = random;
-        observer.next(random)
-      });
-    }
-  }
-
   private fetchData(playerName: String){
     this.fetch.get("https://www.googleapis.com/drive/v3/files/1_sL4j1cwhhK_KyfjQoEX3rgroyaV0KNQOcaWEu5-ICo/export?mimeType=text%2Fcsv&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
       this.papa.parse(d,{
@@ -56,6 +47,20 @@ export class PlayerService {
     })
   }
 
+  /*
+    find 2 random videos from a youtube playlist api returned array
+  */
+  getRandomVideos(arr){
+    if(this.randomVideos){
+      return new Observable(observer => observer.next(this.randomVideos));
+    } else{
+      return new Observable(observer => {
+        var random = this.randomNumbers(arr);
+        this.randomVideos = random;
+        observer.next(random)
+      });
+    }
+  }
   private randomNumbers(arr){
     var maxNum = arr.length,
         rtnOne = 0, rtnTwo = 0;
@@ -83,6 +88,7 @@ export class PlayerService {
       rtnTwo = arr[Math.floor(Math.random() * maxNum)];
     }
 
+    //return results
     return [ rtnOne, rtnTwo ]
   }
 

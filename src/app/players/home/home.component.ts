@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private playerdata: PlayerService, private videodata: VideoService, private route: ActivatedRoute, private router: Router){}
 
-  playerData;
-  randomVideos;
+  playerData: {};
+  randomVideos: {};
 
   ngOnInit(){
+    //nested subscriptions are dodgy. || TODO convert these to async susbcribe fns
     this.playerdata.getPlayerData(this.route.snapshot.params.player.split(/(?=[A-Z])/).join(" ")).subscribe(d => {
+      //check if player exists in the db
       if(!d){
         this.router.navigate(['/404'], { queryParams: { src: "noplayer" } });
       } else{

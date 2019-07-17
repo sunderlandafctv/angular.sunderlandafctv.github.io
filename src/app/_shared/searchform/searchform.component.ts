@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { SearchRequest } from '../search'
 import { Router } from '@angular/router';
+
+import { SearchRequest } from '../search'
 
 @Component({
   selector: 'safc-search',
@@ -10,10 +11,9 @@ import { Router } from '@angular/router';
 
 export class SearchFormComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router){}
 
   sq: SearchRequest = new SearchRequest('');
-
   isFocused: Boolean;
 
   search(){
@@ -21,11 +21,7 @@ export class SearchFormComponent {
   }
 
   focusHandler(isFocusing: boolean){
-    if(isFocusing){
-      this.isFocused = true;
-    } else{
-      this.isFocused = false;
-    }
+    this.isFocused = isFocusing ? true : false
   }
 
 }

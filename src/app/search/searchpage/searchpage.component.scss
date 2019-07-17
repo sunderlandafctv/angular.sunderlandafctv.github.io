@@ -3,10 +3,10 @@
 .loader{
     height: 144px;
     width: 144px;
-    margin: 0 auto;
+    margin: 0 auto; //center loader || TODO maybe put in universal styling? seems to appear a lot
 }
 
-.accent{
+.accent{ // again maybe universal? appears often
     color: $colour_red
 }
 
@@ -25,6 +25,7 @@
     }
 }
 
+//no players found error
 .noPlayers{
     display: flex;
     flex-direction: column;

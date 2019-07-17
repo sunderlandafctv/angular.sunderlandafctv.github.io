@@ -15,7 +15,10 @@ export class PlayersComponent implements OnInit {
   seasonPlayers;
 
   ngOnInit(){
-    this.seasondata.getAllPlayerData().subscribe(d => this.seasondata.getSeasonPlayers(this.router.url.split("/")[3]).subscribe(d => this.seasonPlayers = d ) );
+    this.seasondata.getAllPlayerData().subscribe(d => { //maybe unnecessary
+      //TODO remove nested subscriptions
+      this.seasondata.getSeasonPlayers(this.router.url.split("/")[3]).subscribe(d => this.seasonPlayers = d ) 
+    });
   }
 
 }

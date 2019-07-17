@@ -1,9 +1,5 @@
-@import "../css/colours";
-@import '../css/variables';
-
-main{
-    min-height: calc(100vh - 280px);
-}
+@import "../css/colours",
+        "../css/variables";
 
 footer{
     min-height: 150px;
@@ -15,6 +11,7 @@ footer{
     .accent{
         color: $colour_red !important
     }
+    //rounded corners background
     .wrapper{
         width: 711px;
         background: $colour_white;
@@ -22,12 +19,14 @@ footer{
         margin: 10px;
         padding: 6px;
         text-align: center;
+        //wrapper of external links
         p{
             width: 100%;
             display: block;
             font-size: 1.1em;
             padding: 5px;
             line-height: 1.2;
+            //email, youtube and ryncmrfrd links
             a{
                 color: $colour_black;
                 text-decoration: none;
@@ -36,26 +35,21 @@ footer{
     }
 }
 
-@media only screen and (min-width: $media_tablet) {
-    main{
+//main wrapper - wraps all content except header and footer
+main{
+    min-height: calc(100vh - 280px);
+    width: 100%;
+
+    @media only screen and (min-width: $media_tablet) {
         width: 90%;
     }
-}
-
-@media only screen and (min-width: $media_smalllaptop) {
-    main{
+    @media only screen and (min-width: $media_smalllaptop) {
         width: 85%;
-    }
-}
-
-@media only screen and (min-width: $media_largelaptop) {
-    main{
+    }    
+    @media only screen and (min-width: $media_largelaptop) {
         width: 80%;
     }
-}
-
-@media only screen and (min-width: $media_desktop) {
-    main{
+    @media only screen and (min-width: $media_desktop) {
         width: 75%;
     }
 }
