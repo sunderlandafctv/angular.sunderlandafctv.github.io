@@ -3,14 +3,14 @@
     <safc-search></safc-search>
 </div>
 <div class="wrapper">
-  <img alt="Loading ..." [hidden]="noQuery" *ngIf="matchedPlayerList.length==0 && !noPlayers" class="loader" src="../../../assets/loader.gif">
+  <img [hidden]="noQuery" *ngIf="matchedPlayerList.length==0 && !noPlayers" class="loader" src="../../../assets/loader.gif">
 
   <div *ngIf="noPlayers" class="wrapper noPlayers">
     <h1 class="title accent">Sorry, no players found</h1>
   </div>
 
   <a *ngFor="let player of matchedPlayerList" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
-    <img alt="{{player.Name}} portrait" class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    <img class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
     <div class="text-wrapper">
         <h1 class="title">{{player.Name}}</h1>
         <span class="accent">{{player.Years}}</span>

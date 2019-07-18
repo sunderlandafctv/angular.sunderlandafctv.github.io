@@ -1,9 +1,9 @@
 <div *ngIf="!randomVideos && !topPlayers && !seasonData" class="wrapper" style="justify-content: center;">
-  <img alt="Loading ..." class="loader" src="../../../assets/loader.gif">
+  <img class="loader" src="../../../assets/loader.gif">
 </div>
 
 <article *ngIf="seasonData && randomVideos && topPlayers" class="card long">
-  <img alt="{{season}} team group" class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.png" style="width: auto;">
+  <img class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.png" style="width: auto;">
   <div class="textWrapper">
       <h1 class="title accent">{{season}}</h1>
       <h2 class="subtitle">Finished {{seasonData["League Position"]}}</h2>
@@ -21,7 +21,7 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers" class="wrapper">
   <a *ngFor="let player of topPlayers" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
-    <img alt="{{player.Name}} portrait" class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    <img class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
     <h1 class="title">{{player.Name.split(' ')[0]}}<br>{{player.Name.split(' ')[1]}}</h1>
     <span class="label">{{player.Appearances}} games, {{player.Goals}} goals</span>
   </a>
@@ -32,6 +32,6 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers && this.randomVideos.length != 0" class="wrapper">
   <article *ngFor="let i of randomVideos" class="card video">
-    <iframe title="Recommended {{season}} video" [src]="i.URL"></iframe>
+    <iframe [src]="i.URL"></iframe>
   </article>
 </div>

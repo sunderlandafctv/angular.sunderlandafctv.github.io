@@ -1,9 +1,9 @@
 <div *ngIf="!playerVideos" class="wrapper" style="justify-content: center;">
-    <img alt="Loading ..." class="loader" src="../../../assets/loader.gif">
+    <img class="loader" src="../../../assets/loader.gif">
 </div>
 
 <div *ngIf="playerVideos && playerVideos != 'Player videos not found'" class="wrapper multiLine">
-  <article *ngFor="let i of playerVideos" class="card video"><iframe title="Player video" [src]="i.URL"></iframe></article>
+  <article *ngFor="let i of playerVideos" class="card video"><iframe [src]="i.URL"></iframe></article>
 </div>
 
 <article *ngIf="playerVideos == 'Player videos not found'" class="card long">

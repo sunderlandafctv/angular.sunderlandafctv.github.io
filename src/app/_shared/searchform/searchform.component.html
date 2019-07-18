@@ -1,29 +1,17 @@
 <form class="wrapper" (ngSubmit)="search()" #searchForm="ngForm" [ngClass]="{focus: isFocused}">
 
-  <label id="searchLabel" for="searchInput">
-    <input
-      class="searchInput" 
-      id="searchInput"
-      type="text" 
-      name="queryString"
-      placeholder="Search"
-      [(ngModel)]="sq.queryString"
-      (focus)="focusHandler(true)" 
-      (focusout)="focusHandler(false)"
-      aria-label="search"
-      aria-labelledby="searchLabel"
-      required
-    >
-  </label>
-
-  <button 
-    class="submit" 
-    type="submit" 
-    role="button"
-    aria-label="submitsearch"
-    aria-labelledby="searchIcon"
+  <input
+    class="searchInput" 
+    type="text" 
+    name="queryString"
+    placeholder="Search"
+    [(ngModel)]="sq.queryString"
+    (focus)="focusHandler(true)" 
+    (focusout)="focusHandler(false)"
   >
-    <i id="searchIcon" class="fas fa-search"></i>
+
+  <button class="submit" type="submit" required>
+    <i class="fas fa-search"></i>
   </button>
 
 </form>
