@@ -3,8 +3,8 @@
         <strong></strong>.TV<sup class="v2">v2</sup>
     </a>
     <nav>
-      <button class="hamburger" (click)="toggleHamburger()" [ngClass]='hamburgerActive ? "active" : ""'>
-        <span class="hamburger-box">
+      <button class="hamburger" aria-label="ShowLinks" aria-labelledby="haburgerlabel" (click)="toggleHamburger()" [ngClass]='hamburgerActive ? "active" : ""'>
+        <span id="haburgerlabel" class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
       </button>

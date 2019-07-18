@@ -1,9 +1,9 @@
 <div *ngIf="!playerData || !randomVideos" class="wrapper" style="justify-content: center;">
-  <img class="loader" src="../../../assets/loader.gif">
+  <img alt="Loading ..."class="loader" src="../../../assets/loader.gif">
 </div>
 
 <div *ngIf="playerData && randomVideos" class="card long">
-  <img class="image left" src="../../../assets/playerprofiles/{{playerData.ID}}.png">
+  <img alt="{{playerData.Name}} portrait" class="image left" src="../../../assets/playerprofiles/{{playerData.ID}}.png">
   <div class="textWrapper">
       
       <h1 class="title">{{playerData.Name}} <span class="flag-icon English"></span></h1>
@@ -22,6 +22,6 @@
 <h1 *ngIf="playerData && randomVideos && randomVideos != 'Player videos not found'" class="title">Recommended videos of {{playerData.Name}}</h1>
 <div *ngIf="playerData && randomVideos && randomVideos != 'Player videos not found'" class="wrapper">
   <article *ngFor="let i of randomVideos" class="card video">
-    <iframe [src]="i.URL"></iframe>
+    <iframe title="Recommended video of {{playerData.Name}}" [src]="i.URL"></iframe>
   </article>
 </div>

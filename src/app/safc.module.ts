@@ -18,6 +18,8 @@ import { SearchNavComponent } from './search/searchnav/searchnav.component';
 //404 page components
 import { PageNotFoundComponent } from './404/page-not-found/page-not-found.component';
 import { PageNotFoundNavComponent } from './404/page-not-found-nav/page-not-found-nav.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { PageNotFoundNavComponent } from './404/page-not-found-nav/page-not-foun
     PapaParseModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
