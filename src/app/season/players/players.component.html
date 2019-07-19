@@ -1,5 +1,5 @@
 <div *ngIf="!seasonPlayers" class="wrapper">
-  <img alt="Loading ..." class="loader" src="../../../assets/loader.webm">
+  <img alt="Loading ..." class="loader" src="../../../assets/loader.png">
 </div>
 <div *ngIf="seasonPlayers" class="wrapper">
   <a *ngFor="let player of seasonPlayers" class="card" routerLink="/players/{{player['Name'].replace(' ','')}}">
