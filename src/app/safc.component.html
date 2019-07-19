@@ -1,6 +1,10 @@
-<!--<div class="ifOffline">
-    <h1></h1>
-</div>-->
+<div *ngIf="isOffline" class="offline">
+    <div class="card">
+        <h1 class="title">You are Offline</h1>
+        <p class="text">Non-cached pages, images, and Youtube videos may not work.</p>
+        <button class="btn" (click)="hideModal()">Continue</button>
+    </div>
+</div>
 <router-outlet name="nav"></router-outlet>
 <main>
     <router-outlet></router-outlet>

@@ -36,14 +36,43 @@ footer{
 }
 
 //offline warning
-.ifOffline{
+.offline{
     z-index: 999;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 15%;
-    height: 15%;
-    background: black;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div.card{
+        padding-top: 0;
+        padding-bottom: 25px;
+        width: 95%;
+        @media only screen and (min-width: $media_tablet) {
+            width: 50%;
+        }
+        @media only screen and (min-width: $media_smalllaptop) {
+            width: 30%;
+        }
+        .btn{
+            border: none;
+            margin-top: 15px;
+            padding: 7.5px;
+            background-color: $colour_red;
+            color: $colour_white;
+            border-radius: 3px;
+            text-align: center;
+            &:hover{
+                cursor: pointer;
+                opacity: .8;
+            }
+            &:focus{
+                outline: 0;
+                opacity: .8;
+            }
+        }
+    }
 }
 
 //main wrapper - wraps all content except header and footer

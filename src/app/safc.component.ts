@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'safc-app',
@@ -6,4 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./safc.component.scss']
 })
 
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  
+  isOffline = false;
+
+  ngOnInit(){
+    this.isOffline = !navigator.onLine
+  }
+
+  hideModal(){
+    this.isOffline = false;
+  }
+
+}
