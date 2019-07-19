@@ -1,9 +1,9 @@
 <div *ngIf="!seasonPlayers" class="wrapper">
-  <img class="loader" src="../../../assets/loader.gif">
+  <img alt="Loading ..." class="loader" src="../../../assets/loader.webm">
 </div>
 <div *ngIf="seasonPlayers" class="wrapper">
   <a *ngFor="let player of seasonPlayers" class="card" routerLink="/players/{{player['Name'].replace(' ','')}}">
-    <img class="image left" src="../../../assets/playerprofiles/{{player['ID']}}.png">
+    <img alt="{{player['Name']}} profile" class="image left" src="../../../assets/playerprofiles/{{player['ID']}}.webp">
     <h1 class="title">{{player["Name"].split(" ")[0]}}<br>{{player["Name"].split(" ")[1]}}</h1>
     <span class="label">{{player.Years}}</span>
   </a>

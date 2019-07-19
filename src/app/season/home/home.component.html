@@ -1,9 +1,9 @@
 <div *ngIf="!randomVideos && !topPlayers && !seasonData" class="wrapper" style="justify-content: center;">
-  <img class="loader" src="../../../assets/loader.gif">
+  <img alt="Loading ..." class="loader" src="../../../assets/loader.webm">
 </div>
 
 <article *ngIf="seasonData && randomVideos && topPlayers" class="card long">
-  <img class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.png" style="width: auto;">
+  <img alt="{{season}} profile image" class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.webp" style="width: auto;">
   <div class="textWrapper">
       <h1 class="title accent">{{season}}</h1>
       <h2 class="subtitle">Finished {{seasonData["League Position"]}}</h2>
@@ -11,7 +11,7 @@
       <div class="wrapper">
         <p class="topScorer">Top Scorer: <a target="_blank" routerLink="/players/{{seasonData['Top scorer'].replace(' ','')}}">{{seasonData["Top scorer"]}}</a></p>
         <p>Highest Attendance: <span>{{seasonData["Highest Attendance"]}}</span></p>
-        <a class="label" target="_blank" href="http://www.thestatcat.co.uk/Season.aspx?SeasonID={{seasonData.ID}}">View All Statistics</a>
+        <a class="label" rel="noopener" rel="noopener" target="_blank" href="http://www.thestatcat.co.uk/Season.aspx?SeasonID={{seasonData.ID}}">View All Statistics</a>
       </div>
   </div>
 </article>
@@ -21,7 +21,7 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers" class="wrapper">
   <a *ngFor="let player of topPlayers" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
-    <img class="image left" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    <img alt="{{player.Name}} profile"  class="image left" src="../../../assets/playerprofiles/{{player.ID}}.webp">
     <h1 class="title">{{player.Name.split(' ')[0]}}<br>{{player.Name.split(' ')[1]}}</h1>
     <span class="label">{{player.Appearances}} games, {{player.Goals}} goals</span>
   </a>
@@ -32,6 +32,6 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers && this.randomVideos.length != 0" class="wrapper">
   <article *ngFor="let i of randomVideos" class="card video">
-    <iframe [src]="i.URL"></iframe>
+    <iframe title="Random season video" [src]="i.URL"></iframe>
   </article>
 </div>

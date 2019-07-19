@@ -13,22 +13,22 @@ const routes: Routes = [
   //home pages
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)
+    loadChildren: './home/home.module#HomeModule'
   },
   //specific player page
   {
     path: 'players/:player',
-    loadChildren: () => import('./players/players.module').then(mod => mod.PlayersModule)
+    loadChildren: './players/players.module#PlayersModule'
   },
   //decade pages
   {
     path: 'seasons/:decade',
-    loadChildren: () => import('./decade/decade.module').then(mod => mod.DecadeModule)
+    loadChildren: './decade/decade.module#DecadeModule'
   },
   //season pages (if season is specified)
   {
     path: 'seasons/:decade/:season',
-    loadChildren: () => import('./season/season.module').then(mod => mod.SeasonModule)
+    loadChildren: './season/season.module#SeasonModule'
   },
   // /search page (routed to after using searchnavcomponent)
   { 
@@ -56,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 

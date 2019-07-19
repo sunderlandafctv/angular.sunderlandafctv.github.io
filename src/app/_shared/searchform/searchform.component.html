@@ -1,5 +1,4 @@
 <form class="wrapper" (ngSubmit)="search()" #searchForm="ngForm" [ngClass]="{focus: isFocused}">
-
   <input
     class="searchInput" 
     type="text" 
@@ -8,9 +7,14 @@
     [(ngModel)]="sq.queryString"
     (focus)="focusHandler(true)" 
     (focusout)="focusHandler(false)"
+    aria-label="Search text"
   >
-
-  <button class="submit" type="submit" required>
+  <button 
+    class="submit" 
+    type="submit"
+    aria-label="Search"
+    required
+    >
     <i class="fas fa-search"></i>
   </button>
 
