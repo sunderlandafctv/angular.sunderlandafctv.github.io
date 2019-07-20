@@ -12,7 +12,7 @@
   <a *ngFor="let player of matchedPlayerList" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
     <picture>
       <source type="image/webp" srcset="../../../assets/playerprofiles/{{player.ID}}.webp">
-      <img class="image center" alt="{{player.Name}} profile" src="../../../assets/playerprofiles/{{player.ID}}.png">
+      <img class="image left" alt="{{player.Name}} profile" src="../../../assets/playerprofiles/{{player.ID}}.png">
     </picture>
     <div class="text-wrapper">
         <h1 class="title">{{player.Name}}</h1>
