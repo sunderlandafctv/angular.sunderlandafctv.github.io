@@ -3,8 +3,11 @@
 </div>
 <div *ngIf="seasonPlayers" class="wrapper">
   <a *ngFor="let player of seasonPlayers" class="card" routerLink="/players/{{player['Name'].replace(' ','')}}">
-    <img alt="{{player['Name']}} profile" class="image left" src="../../../assets/playerprofiles/{{player['ID']}}.webp">
+    <picture>
+      <source type="image/webp" srcset="../../../assets/playerprofiles/{{player['ID']}}.webp">
+        <img class="image left" alt="{{player['Name']}} profile" src="../../../assets/playerprofiles/{{player['ID']}}.png">
+    </picture>
     <h1 class="title">{{player["Name"].split(" ")[0]}}<br>{{player["Name"].split(" ")[1]}}</h1>
-    <span class="label">{{player.Years}}</span>
+    <span class="label">{{player["Years "]}}</span>
   </a>
 </div>

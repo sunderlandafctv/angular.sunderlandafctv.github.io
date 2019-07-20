@@ -11,7 +11,7 @@ export class Top10sService {
 
   constructor(private fetch: HttpClient, private sanitizer: DomSanitizer) { }
 
-  /*private TODO investigate if private is possible*/ top10Videos: Object = undefined;
+  private top10Videos: Object = undefined;
   private Observer: Observer<Object>;
 
   getTop10Videos(){

@@ -10,10 +10,13 @@
   </div>
 
   <a *ngFor="let player of matchedPlayerList" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
-    <img alt="{{player.Name}} profile" class="image left" src="../../../assets/playerprofiles/{{player.ID}}.webp">
+    <picture>
+      <source type="image/webp" srcset="../../../assets/playerprofiles/{{player.ID}}.webp">
+      <img class="image center" alt="{{player.Name}} profile" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    </picture>
     <div class="text-wrapper">
         <h1 class="title">{{player.Name}}</h1>
-        <span class="accent">{{player.Years}}</span>
+        <span class="accent">{{player["Years "]}}</span>
         <p class="text">{{player.Overview}}</p>
     </div>
   </a>

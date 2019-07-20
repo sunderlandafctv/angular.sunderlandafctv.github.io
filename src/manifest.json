@@ -1,8 +1,8 @@
 {
-  "name": "v3sunderlandafctv",
-  "short_name": "v3sunderlandafctv",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "SUNDERLANDAFC.TV",
+  "short_name": "SAFC.TV",
+  "theme_color": "#EB172B",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

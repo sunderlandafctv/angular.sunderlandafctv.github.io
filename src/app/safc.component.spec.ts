@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'v3sunderlandafctv'`, () => {
+  it(`should have as title 'SUNDERLANDAFC.TV'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('v3sunderlandafctv');
+    expect(app.title).toEqual('SUNDERLANDAFC.TV');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to v3sunderlandafctv!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to SUNDERLANDAFC.TV!');
   });
 });

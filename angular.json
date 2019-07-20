@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "v3sunderlandafctv": {
+    "SUNDERLANDAFC.TV": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/v3sunderlandafctv",
+            "outputPath": "dist/SUNDERLANDAFC.TV",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,6 +25,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.json",
+              "src/manifest.json",
               "src/manifest.json"
             ],
             "styles": [
@@ -65,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "v3sunderlandafctv:build"
+            "browserTarget": "SUNDERLANDAFC.TV:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "v3sunderlandafctv:build:production"
+              "browserTarget": "SUNDERLANDAFC.TV:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "v3sunderlandafctv:build"
+            "browserTarget": "SUNDERLANDAFC.TV:build"
           }
         },
         "test": {
@@ -93,6 +95,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.json",
+              "src/manifest.json",
               "src/manifest.json"
             ]
           }
@@ -111,7 +115,7 @@
         }
       }
     },
-    "v3sunderlandafctv-e2e": {
+    "SUNDERLANDAFC.TV-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -120,11 +124,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "v3sunderlandafctv:serve"
+            "devServerTarget": "SUNDERLANDAFC.TV:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "v3sunderlandafctv:serve:production"
+              "devServerTarget": "SUNDERLANDAFC.TV:serve:production"
             }
           }
         },
@@ -140,5 +144,5 @@
       }
     }
   },
-  "defaultProject": "v3sunderlandafctv"
+  "defaultProject": "SUNDERLANDAFC.TV"
 }

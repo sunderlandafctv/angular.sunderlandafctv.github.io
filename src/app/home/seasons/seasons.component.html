@@ -3,11 +3,14 @@
   <article class="card" style="z-index: 6">
     <a routerLink="/seasons/Pre1950s">
       <h1 class="title">Pre 1950's</h1>
-      <img  alt="Pre 1950's profile"class="image center" src="../../../assets/home-decades/PreWW2.webp" alt="">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/PreWW2.webp">
+        <img class="image center" alt="Pre 1950's profile" src="../../../assets/home-decades/PreWW2.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Decades</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -24,11 +27,14 @@
   <article class="card" style="z-index: 5;">
     <a routerLink="/seasons/1950s">
       <h1 class="title">1950's</h1>
-      <img alt="1950's profile" class="image center" src="../../../assets/home-decades/1950s.webp ">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/1950s.webp">
+        <img class="image center" alt="1950's profile" src="../../../assets/home-decades/1950s.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -49,11 +55,14 @@
   <article class="card" style="z-index: 4;">
     <a routerLink="/seasons/1960s">
       <h1 class="title">1960's</h1>
-      <img alt="1960's profile" class="image center" src="../../../assets/home-decades/1960s.webp">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/1960s.webp">
+        <img class="image center" alt="1960's profile" src="../../../assets/home-decades/1960s.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -74,11 +83,14 @@
   <article class="card" style="z-index: 3;">
     <a routerLink="/seasons/1970s">
       <h1 class="title">1970's</h1>
-      <img alt="1970's profile" class="image center" src="../../../assets/home-decades/1970s.webp">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/1970s.webp">
+        <img class="image center" alt="1970's profile" src="../../../assets/home-decades/1970s.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -99,11 +111,14 @@
   <article class="card" style="z-index: 2;">
     <a routerLink="/seasons/1980s">
       <h1 class="title">1980's</h1>
-      <img alt="1980's profile" class="image center" src="../../../assets/home-decades/1980s.webp">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/1980s.webp">
+        <img class="image center" alt="1980's profile" src="../../../assets/home-decades/1980s.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -124,11 +139,14 @@
   <article class="card" style="z-index: 1;">
     <a routerLink="/seasons/1990s">
       <h1 class="title">1990's</h1>
-      <img alt="1990's profile" class="image center" src="../../../assets/home-decades/1990s.webp">
+      <picture>
+        <source type="image/webp" srcset="../../../assets/home-decades/1990s.webp">
+        <img class="image center" alt="1990's profile" src="../../../assets/home-decades/1990s.png">
+      </picture>
     </a>
     <div class="dropdownToggle">
       <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links" (click)="toggleLinks($event)">
+      <button class="btn" aria-label="Open Season Links" (click)="toggleSeasonLinks($event)">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
@@ -145,5 +163,4 @@
       <a routerLink="/seasons/1990s/1999-2000"><h1>1999-2000</h1></a>
     </div>
   </article>
-
 </div>

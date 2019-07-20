@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to v3sunderlandafctv!');
+    expect(page.getTitleText()).toEqual('Welcome to SUNDERLANDAFC.TV!');
   });
 
   afterEach(async () => {

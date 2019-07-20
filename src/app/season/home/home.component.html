@@ -2,8 +2,11 @@
   <img alt="Loading ..." class="loader" src="../../../assets/loader.png">
 </div>
 
-<article *ngIf="seasonData && randomVideos && topPlayers" class="card long">
-  <img alt="{{season}} profile image" class="image left" alt="season image" src="../../../assets/Teamgroups/{{season}}.webp" style="width: auto;">
+<article *ngIf="seasonData && randomVideos && topPlayers" class="card long"> 
+  <picture>
+    <source type="image/webp" srcset="../../../assets/Teamgroups/{{season}}.webp">
+    <img class="image left" style="width: auto;" alt="{{season}} profile image" src="../../../assets/Teamgroups/{{season}}.png">
+  </picture>
   <div class="textWrapper">
       <h1 class="title accent">{{season}}</h1>
       <h2 class="subtitle">Finished {{seasonData["League Position"]}}</h2>
@@ -21,7 +24,10 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers" class="wrapper">
   <a *ngFor="let player of topPlayers" class="card" routerLink="/players/{{player.Name.replace(' ','')}}">
-    <img alt="{{player.Name}} profile"  class="image left" src="../../../assets/playerprofiles/{{player.ID}}.webp">
+    <picture>
+      <source type="image/webp" srcset="../../../assets/playerprofiles/{{player.ID}}.webp">
+      <img class="image left" style="width: auto;" alt="{{player.Name}} profile" src="../../../assets/playerprofiles/{{player.ID}}.png">
+    </picture>
     <h1 class="title">{{player.Name.split(' ')[0]}}<br>{{player.Name.split(' ')[1]}}</h1>
     <span class="label">{{player.Appearances}} games, {{player.Goals}} goals</span>
   </a>

@@ -1,4 +1,18 @@
-@import '../../../css/colours';
+@import '../../../css/colours',
+        '../../../css/variables';
+
+.card.long{
+    .image.left{
+        height: 200px;
+        width: 300px;
+    }
+    @media only screen and (min-width: $media_tablet) {
+        flex-direction: row;
+        .textWrapper .text{
+            margin-right: 10px;
+        }
+    }
+}
 
 .topScorer a:hover{ //becauce its a link.
     color: $colour_red;

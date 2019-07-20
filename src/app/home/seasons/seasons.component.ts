@@ -10,8 +10,7 @@ export class SeasonsComponent {
 
   constructor(){}
 
-  //really should be titled something like toggleSeasonLinks || TODO change this
-  toggleLinks(e){
+  toggleSeasonLinks(e){
     var element = e.target;
     element.tagName == "BUTTON" ? 
       element.parentNode.parentNode.classList.toggle("active") : //if clicked on the outside wrapper

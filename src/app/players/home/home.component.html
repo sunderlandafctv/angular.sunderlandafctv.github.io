@@ -3,11 +3,14 @@
 </div>
 
 <div *ngIf="playerData && randomVideos" class="card long">
-  <img alt="{{playerData.Name}} profile" class="image left" src="../../../assets/playerprofiles/{{playerData.ID}}.webp">
+  <picture>
+    <source type="image/webp" srcset="../../../assets/playerprofiles/{{playerData.ID}}.webp">
+    <img class="image left" alt="{{playerData.Name}} profile" src="../../../assets/playerprofiles/{{playerData.ID}}.png">
+  </picture>
   <div class="textWrapper">
       
       <h1 class="title">{{playerData.Name}} <span class="flag-icon English"></span></h1>
-      <h2 class="subtitle">{{playerData.Years}}</h2>
+      <h2 class="subtitle">{{playerData["Years "]}}</h2>
       <p class="text" style="text-align: left">{{playerData.Overview}}</p>
       
       <div class="wrapper">

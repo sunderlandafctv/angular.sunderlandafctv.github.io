@@ -18,7 +18,7 @@ export class DataService {
   private seasonObserver;
 
   getAllSeasonData(season){
-    if(this.playerData) return new Observable(observer => observer.next(this.seasonData));
+    if(this.seasonData) return new Observable(observer => observer.next(this.seasonData));
     else{
       return new Observable(observer => {
         this.seasonObserver = observer;
@@ -58,7 +58,7 @@ export class DataService {
     }
   }
   private fetchPlayerData(){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/1_sL4j1cwhhK_KyfjQoEX3rgroyaV0KNQOcaWEu5-ICo/export?mimeType=text%2Fcsv&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
       this.papa.parse(d,{
         header: true,
         complete: result => {
@@ -89,25 +89,29 @@ export class DataService {
     function isBetween(n,a,b)  {
       return (n - a) * (n - b) <= 0
     }
+    //for the decades treated as seasons
     if(season.charAt(4) == "s"){
       var result = [], decadeYears = {
         "from": Number(season.replace("s","")),
-        "to": Number(season.replace("s","")) + 10
+        "to": Number(season.replace("s","")) + 9
       }
       this.playerData.forEach(player => {
         var playerYears = {
-          "from": player.Years.split("-")[0], "to"  : player.Years.split("-")[1]
+          "from": player["Years "].split("-")[0], "to"  : player["Years "].split("-")[1]
         }
-        if(isBetween(decadeYears.from, playerYears.from, playerYears.to) && isBetween(decadeYears.to, playerYears.from, playerYears.to)) result.push(player)
+        if(isBetween(decadeYears.from, playerYears.from, playerYears.to) || isBetween(decadeYears.to, playerYears.from, playerYears.to)) result.push(player)
       });
-    } else if(season.charAt(4) == "-"){
+
+    } 
+    //for regular seasons
+    else if(season.charAt(4) == "-"){
       var result = [], seasonYears = {
         "from": season.split("-")[0], 
         "to"  : season.split("-")[1]
       }
       this.playerData.forEach(player => {
         var playerYears = {
-          "from": player.Years.split("-")[0], "to"  : player.Years.split("-")[1]
+          "from": player["Years "].split("-")[0], "to"  : player["Years "].split("-")[1]
         }
         if(isBetween(seasonYears.from, playerYears.from, playerYears.to) && isBetween(seasonYears.to, playerYears.from, playerYears.to)) result.push(player)
       });
