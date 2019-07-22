@@ -4,6 +4,8 @@ import { TriangleService } from '../../triangle.service'
 import { Subscription } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'safc-home-nav',
@@ -11,9 +13,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  constructor(private triangle: TriangleService, private router: Router, private titleService: Title, private route: ActivatedRoute){}
+  constructor(private triangle: TriangleService, private router: Router, private titleService: Title, private route: ActivatedRoute){
+    super();
+  }
 
   hamburgerActive: Boolean = false;
   triangleActive: Boolean;
@@ -29,11 +33,11 @@ export class NavComponent implements OnInit, OnDestroy {
     this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
     document.querySelector("body").classList.remove("noScroll");
     //check if triangle is enabled or disabled
-    this.triangleSubscription = this.triangle.triangleEnabled.subscribe((bool: Boolean) => {
+    this.triangleSubscription = this.triangle.triangleEnabled.pipe(takeUntil(this.ngUnsubscribe)).subscribe((bool: Boolean) => {
       this.triangleActive = bool;
     });
     //look for url changes
-    this.router.events.subscribe((event: Event) => {
+    this.router.events.pipe(takeUntil(this.ngUnsubscribe)).subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {
         //set page title
         this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)

@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Papa } from 'ngx-papaparse';
 import { Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
 
 @Component({
   selector: 'app-searchpage',
@@ -10,9 +12,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./searchpage.component.scss']
 })
 
-export class SearchPageComponent implements OnInit, OnDestroy {
+export class SearchPageComponent extends BaseComponent implements OnInit {
 
-  constructor(private fetch: HttpClient, private route: ActivatedRoute, private papa:Papa){}
+  constructor(private fetch: HttpClient, private route: ActivatedRoute, private papa:Papa){
+    super();
+  }
 
   noQuery: Boolean = false;
   searchQuery: String;
@@ -20,11 +24,9 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   matchedPlayerList: Array<any> = []; //search results
   noPlayers: Boolean = false;
 
-  fetchSubscription: Subscription;
-  routeSubscription: Subscription;
-
   ngOnInit(){
-    this.fetchSubscription = this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => {
       this.papa.parse(d,{
         header: true,
         complete: result => {
@@ -32,7 +34,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
           result.data.pop(); // only until the csv is fixed
           this.playerData = result.data;
 
-          this.routeSubscription = this.route.params.subscribe(params => {
+          this.route.params.subscribe(params => {
             if(!params["query"]){ //show search box if no query is present
               this.noQuery = true;
             } else{ //otherwise continue
@@ -44,11 +46,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
         }
       });
     });
-  }
-
-  ngOnDestroy(){
-    this.fetchSubscription.unsubscribe();
-    this.routeSubscription.unsubscribe();
   }
 
   search(query: String){

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Top10sService } from '../top10s.service'
+import { takeUntil } from 'rxjs/operators';
+import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
 
 @Component({
   selector: 'app-top10s',
@@ -7,14 +9,17 @@ import { Top10sService } from '../top10s.service'
   styleUrls: ['./top10s.component.scss']
 })
 
-export class Top10sComponent implements OnInit {
+export class Top10sComponent extends BaseComponent implements OnInit {
 
-  constructor(private top10: Top10sService) { }
+  constructor(private top10: Top10sService) {
+    super();
+  }
 
   top10videos: Array<any>;
 
   ngOnInit(){
-    this.top10.getTop10Videos().subscribe(d => this.top10videos = d["items"] )
+    this.top10.getTop10Videos().pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => this.top10videos = d["items"] )
   }
 
 }

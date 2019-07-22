@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { Papa } from 'ngx-papaparse';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Observer } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { BaseComponent } from '../_shared/_baseClass/baseClass';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class PlayerService {
+export class PlayerService extends BaseComponent {
 
-  constructor(private papa: Papa, private fetch: HttpClient){}
+  constructor(private papa: Papa, private fetch: HttpClient){
+    super();
+  }
 
   playerData: Array<any>;   //could be private? || TODO <-- that
   randomVideos: Array<any>; //this one also
@@ -36,7 +40,8 @@ export class PlayerService {
     }
   }
   private fetchData(playerName: String){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => {
       this.papa.parse(d,{
         header: true,
         complete: result => {

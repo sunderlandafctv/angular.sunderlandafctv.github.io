@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
 
 @Component({
   selector: 'app-page-not-found-nav',
@@ -10,9 +12,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./page-not-found-nav.component.scss']
 })
 
-export class PageNotFoundNavComponent implements OnInit, OnDestroy {
+export class PageNotFoundNavComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  constructor(private router: Router, private titleService: Title, private route: ActivatedRoute){}
+  constructor(private router: Router, private titleService: Title, private route: ActivatedRoute){
+    super();
+  }
 
   hamburgerActive: Boolean = false;
   routerSubscription: Subscription;
@@ -26,7 +30,8 @@ export class PageNotFoundNavComponent implements OnInit, OnDestroy {
     this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
     document.querySelector("body").classList.remove("noScroll");
     //look for url changes
-    this.routerSubscription = this.router.events.subscribe((event: Event) => {
+    this.routerSubscription = this.router.events.pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {
         //set page title
         this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)

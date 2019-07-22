@@ -3,14 +3,18 @@ import { Papa } from 'ngx-papaparse';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
+import { takeUntil } from 'rxjs/operators';
+import { BaseComponent } from '../_shared/_baseClass/baseClass';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class DataService {
+export class DataService extends BaseComponent {
 
-  constructor(private papa: Papa, private fetch: HttpClient, private sanitizer: DomSanitizer){}
+  constructor(private papa: Papa, private fetch: HttpClient, private sanitizer: DomSanitizer){
+    super();
+  }
 
   //ALL DATA FROM THE SEASON CSV
 
@@ -27,7 +31,8 @@ export class DataService {
     }
   }
   private fetchAllSeasonData(season){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: 'text'}).subscribe(d => {
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: 'text'}).pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => {
     this.papa.parse(d,{
         header: true,
         complete: result => {
@@ -58,7 +63,8 @@ export class DataService {
     }
   }
   private fetchPlayerData(){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).subscribe(d => {
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => {
       this.papa.parse(d,{
         header: true,
         complete: result => {
@@ -173,7 +179,8 @@ export class DataService {
       "199":"PLiVty6-a8hTw-YVfL4cX4-FwVnFL1gP8Q"
     }
     var decadePlaylistID = season.charAt(4) == "s" ? seasons.Pre : seasons[season.substr(0,3)];
-    this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${decadePlaylistID}`).subscribe(d => {
+    this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${decadePlaylistID}`).pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(d => {
       var results: Array<any> = [];
       if(decadePlaylistID == "PLiVty6-a8hTyIQnquz7JuJUbmptgl4k4X"){
         //specific variable for the pre 1950s "decade" because the pre

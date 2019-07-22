@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,9 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./page-not-found.component.scss']
 })
 
-export class PageNotFoundComponent implements OnInit {
+export class PageNotFoundComponent extends BaseComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute){}
+  constructor(private router: Router, private route: ActivatedRoute){
+    super();
+  }
 
   errorText: String = "page"; //specific type of the not found page
   dataText: String; //data related to the not found page
@@ -27,7 +31,8 @@ export class PageNotFoundComponent implements OnInit {
   similarDecades: Array<String> = []; //decades similar to one provided in data
 
   ngOnInit(){
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((params: Array<any>) => {
       //store url params
       var pmtext = params['src'];
       this.dataText = params['d'];
