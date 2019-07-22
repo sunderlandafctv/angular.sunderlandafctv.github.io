@@ -1,4 +1,5 @@
-@import '../../../css/colours';
+@import "../../../css/colours",
+        "../../../css//variables";
 
 .loader{
     margin: 0 auto; //center loader || TODO maybe put in universal styling? seems to appear a lot
@@ -29,4 +30,11 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+}
+
+
+@media only screen and (min-width: $media_tablet) and (max-width: $media_largelaptop){
+    .image.left {
+        float: none !important;
+    }
 }
