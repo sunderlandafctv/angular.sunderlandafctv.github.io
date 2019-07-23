@@ -24,27 +24,35 @@
   <meta property="twitter:url" content="https://sunderlandafc.tv/">
   <meta property="twitter:title" content="Home | SUNDERLANDAFC.TV">
   <meta property="twitter:description" content="The definitive retro Sunderland AFC fan site - bringing together historic videos, player details, and statistics.">
-  <meta property="twitter:image" content="https://sunderland.me/bin/screenshot.webp">
+  <meta property="twitter:image" content="https://sunderlandafc.tv/bin/screenshot.webp">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous"/>
   <link rel="manifest" href="manifest.json">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1976d2">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1976d2">
 </head>
 <body>
+  <script>
+    window.onload = function(){
+      var vidDefer = document.getElementsByTagName('iframe');
+      for (var i=0; i<vidDefer.length; i++) {
+        if(vidDefer[i].getAttribute('data-src')) vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
+      }
+    };
+  </script>
+
   <safc-app>
-    <style>
-      .loader{height:100vh;width:100vw;display:flex;justify-content:center;position:absolute;top:0;left:0;background:#EB172B}.loader img{position:absolute;top:30%;height:200px;width:200px}noscript{font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;text-align:center;position:absolute;top:53%;}noscript h1{margin-bottom: 0;}
-    </style>
+    <style>.loader{height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:center;align-items:center;position:absolute;top:0;left:0;background:#eb172b}.loader img{height:200px;width:200px}</style>
     <div class="loader">
-      <img alt="Loading ..." class="img" src="assets/logos/1.webp">
+      <picture>
+        <source srcset="assets/logos/1.webp">
+        <img alt="Loading ..." class="img" src="assets/logos/1.png">
+      </picture>
+      <noscript>
+        <style>noscript{font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;text-align:center;width:100vw;margin: 0 15px;}noscript h1{margin-bottom: 0;}</style>
+        <h1>No Javascript Detected</h1>
+        <p>Please enable it or access this site on another device.</p>
+      </noscript>
     </div>
   </safc-app>
-  <noscript>
-    <h1>No Javascript Detected</h1>
-    <p>Please enable it or access this site on a different device.</p>
-  </noscript>
+
+  <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous"/>
 </body>
 </html>

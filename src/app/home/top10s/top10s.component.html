@@ -2,5 +2,5 @@
   <img alt="Loading ..." class="loader" src="../../../assets/loader.png">
 </div>
 <div *ngIf="top10videos" class="wrapper multiLine">
-  <article *ngFor="let i of top10videos" class="card video"><iframe title="Top 10 Video" [src]="i.URL"></iframe></article>
+  <article *ngFor="let i of top10videos" class="card video"><iframe title="Top 10 Video" [data-src]="i.URL"></iframe></article>
 </div>

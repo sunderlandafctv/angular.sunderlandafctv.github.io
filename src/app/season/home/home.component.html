@@ -38,6 +38,6 @@
 
 <div *ngIf="seasonData && randomVideos && topPlayers && this.randomVideos.length != 0" class="wrapper">
   <article *ngFor="let i of randomVideos" class="card video">
-    <iframe title="Random season video" [src]="i.URL"></iframe>
+    <iframe title="Random season video" [data-src]="i.URL"></iframe>
   </article>
 </div>
