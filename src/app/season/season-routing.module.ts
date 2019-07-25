@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { NavComponent } from './nav/nav.component'
-import { HomeComponent } from './home/home.component'
-import { VideosComponent } from './videos/videos.component'
-import { PlayersComponent } from './players/players.component'
+import { NavComponent } from "./nav/nav.component"
+import { HomeComponent } from "./home/home.component"
+import { VideosComponent } from "./videos/videos.component"
+import { PlayersComponent } from "./players/players.component"
 
 const routes: Routes = [
   { 

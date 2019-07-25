@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from '../_shared/_baseClass/baseClass';
+import { Injectable } from "@angular/core";
+import { Observable, Observer } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { DomSanitizer } from "@angular/platform-browser";
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "../_shared/_baseClass/baseClass";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class Top10sService extends BaseComponent {
@@ -26,7 +26,7 @@ export class Top10sService extends BaseComponent {
         this.Observer = observer;
         this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=PLiVty6-a8hTwboGWLDbQL0ZEjC92atdP3`).pipe(takeUntil(this.ngUnsubscribe))
         .subscribe(d => {
-          //because of typescript's wierd variable type system
+          //because of typescript"s wierd variable type system
           Array.from(d["items"])
           //bypassSecurityTrustResourceUrl() is called to stop XSS and iframe security errors returned by angular
           for(let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, Observer } from 'rxjs';
-import { DomSanitizer } from '@angular/platform-browser';
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from '../_shared/_baseClass/baseClass';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable, Observer } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "../_shared/_baseClass/baseClass";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class VideoService extends BaseComponent {

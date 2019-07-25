@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-searchnav',
-  templateUrl: './searchnav.component.html',
-  styleUrls: ['./searchnav.component.scss']
+  selector: "app-searchnav",
+  templateUrl: "./searchnav.component.html",
+  styleUrls: ["./searchnav.component.scss"]
 })
 
 export class SearchNavComponent implements OnInit {

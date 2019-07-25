@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { PlayerService } from '../player.service';
-import { VideoService } from '../video.service';
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { PlayerService } from "../player.service";
+import { VideoService } from "../video.service";
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 
 export class HomeComponent extends BaseComponent implements OnInit {
@@ -27,7 +27,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
     .subscribe(d => {
       //check if player exists in the db
       if(!d){
-        this.router.navigate(['/404'], { queryParams: { src: "noplayer" } });
+        this.router.navigate(["/404"], { queryParams: { src: "noplayer" } });
       } else{
         this.playerData = d;
         this.videodata.getPlayerVideos(this.playerData["Name"]).pipe(takeUntil(this.ngUnsubscribe))

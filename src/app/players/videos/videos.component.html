@@ -3,7 +3,7 @@
 </div>
 
 <div *ngIf="playerVideos && playerVideos != 'Player videos not found'" class="wrapper multiLine">
-  <article *ngFor="let i of playerVideos" class="card video"><iframe title="Player Video" [data-src]="i.URL"></iframe></article>
+  <article *ngFor="let i of playerVideos" class="card video"><iframe title="Player Video" [src]="i.URL"></iframe></article>
 </div>
 
 <article *ngIf="playerVideos == 'Player videos not found'" class="card long">

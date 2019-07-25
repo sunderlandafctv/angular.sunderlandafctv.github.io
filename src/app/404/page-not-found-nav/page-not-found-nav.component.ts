@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, Event, NavigationEnd } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router, Event, NavigationEnd } from "@angular/router";
+import { Subscription } from "rxjs";
+import { takeUntil } from "rxjs/operators";
+import { Title } from "@angular/platform-browser";
+import { ActivatedRoute } from "@angular/router";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 @Component({
-  selector: 'app-page-not-found-nav',
-  templateUrl: './page-not-found-nav.component.html',
-  styleUrls: ['./page-not-found-nav.component.scss']
+  selector: "app-page-not-found-nav",
+  templateUrl: "./page-not-found-nav.component.html",
+  styleUrls: ["./page-not-found-nav.component.scss"]
 })
 
 export class PageNotFoundNavComponent extends BaseComponent implements OnInit, OnDestroy {

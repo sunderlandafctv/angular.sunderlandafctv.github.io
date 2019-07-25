@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PageNotFoundNavComponent } from './page-not-found-nav.component';
+import { PageNotFoundNavComponent } from "./page-not-found-nav.component";
 
-describe('PageNotFoundNavComponent', () => {
+describe("PageNotFoundNavComponent", () => {
   let component: PageNotFoundNavComponent;
   let fixture: ComponentFixture<PageNotFoundNavComponent>;
 
@@ -19,7 +19,7 @@ describe('PageNotFoundNavComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { DataService } from '../data.service'
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { DataService } from "../data.service"
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 
 export class HomeComponent extends BaseComponent implements OnInit {

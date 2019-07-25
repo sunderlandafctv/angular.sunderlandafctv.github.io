@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { VideoService } from '../video.service';
-import { PlayerService } from '../player.service'
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { VideoService } from "../video.service";
+import { PlayerService } from "../player.service"
+import { Title } from "@angular/platform-browser";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  selector: "app-nav",
+  templateUrl: "./nav.component.html",
+  styleUrls: ["./nav.component.scss"]
 })
 
 export class NavComponent implements OnInit, OnDestroy {

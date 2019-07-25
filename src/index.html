@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="language" content="English">
-  <meta name="theme-color" content="#eb172b">
-  <meta name="msapplication-TileColor" content="#eb172b">
+  <meta name="theme-color" content="#EB172B">
+  <meta name="msapplication-TileColor" content="#EB172B">
   <meta name="google-site-verification" content="n9hbBvGOpobk44j10IMZdJV-nLLx78zrUAjnDHdmLm8">
   <meta name="title" content="SUNDERLANDAFC.TV">
   <meta name="description" content="The definitive retro Sunderland AFC fan site - bringing together historic videos, player details, and statistics.">
@@ -29,15 +29,6 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <script>
-    window.onload = function(){
-      var vidDefer = document.getElementsByTagName('iframe');
-      for (var i=0; i<vidDefer.length; i++) {
-        if(vidDefer[i].getAttribute('data-src')) vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
-      }
-    };
-  </script>
-
   <safc-app>
     <style>.loader{height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:center;align-items:center;position:absolute;top:0;left:0;background:#eb172b}.loader img{height:200px;width:200px}</style>
     <div class="loader">
@@ -45,6 +36,7 @@
         <source srcset="assets/logos/1.webp">
         <img alt="Loading ..." class="img" src="assets/logos/1.png">
       </picture>
+      <img alt="Loading ..." class="img" src="../../../assets/loader_page.gif">
       <noscript>
         <style>noscript{font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;text-align:center;width:100vw;margin: 0 15px;}noscript h1{margin-bottom: 0;}</style>
         <h1>No Javascript Detected</h1>

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Top10sService } from '../top10s.service'
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { Component, OnInit } from "@angular/core";
+import { Top10sService } from "../top10s.service"
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 @Component({
-  selector: 'app-top10s',
-  templateUrl: './top10s.component.html',
-  styleUrls: ['./top10s.component.scss']
+  selector: "app-top10s",
+  templateUrl: "./top10s.component.html",
+  styleUrls: ["./top10s.component.scss"]
 })
 
 export class Top10sComponent extends BaseComponent implements OnInit {

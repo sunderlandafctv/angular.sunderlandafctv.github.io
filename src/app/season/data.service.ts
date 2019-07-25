@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Papa } from 'ngx-papaparse';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { DomSanitizer } from '@angular/platform-browser';
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from '../_shared/_baseClass/baseClass';
+import { Injectable } from "@angular/core";
+import { Papa } from "ngx-papaparse";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "../_shared/_baseClass/baseClass";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class DataService extends BaseComponent {
@@ -31,7 +31,7 @@ export class DataService extends BaseComponent {
     }
   }
   private fetchAllSeasonData(season){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: 'text'}).pipe(takeUntil(this.ngUnsubscribe))
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: "text"}).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
     this.papa.parse(d,{
         header: true,

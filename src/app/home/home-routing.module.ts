@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
 //page modules
-import { NavComponent }     from './nav/nav.component';
-import { HomeComponent }    from './home/home.component';
-import { SeasonsComponent } from './seasons/seasons.component';
-import { PlayersComponent } from './players/players.component';
-import { Top10sComponent }  from './top10s/top10s.component';
-import { AboutComponent }   from './about/about.component';
+import { NavComponent }     from "./nav/nav.component";
+import { HomeComponent }    from "./home/home.component";
+import { SeasonsComponent } from "./seasons/seasons.component";
+import { PlayersComponent } from "./players/players.component";
+import { Top10sComponent }  from "./top10s/top10s.component";
+import { AboutComponent }   from "./about/about.component";
 
 const routes: Routes = [
   //redirect sunderlandafc.tv to sunderlandafc.tv/home

@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable, Observer } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class TriangleService {

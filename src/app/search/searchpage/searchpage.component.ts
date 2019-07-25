@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Papa } from 'ngx-papaparse';
-import { Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { Papa } from "ngx-papaparse";
+import { Subscription } from "rxjs";
+import { takeUntil } from "rxjs/operators";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 @Component({
-  selector: 'app-searchpage',
-  templateUrl: './searchpage.component.html',
-  styleUrls: ['./searchpage.component.scss']
+  selector: "app-searchpage",
+  templateUrl: "./searchpage.component.html",
+  styleUrls: ["./searchpage.component.scss"]
 })
 
 export class SearchPageComponent extends BaseComponent implements OnInit {
@@ -51,7 +51,7 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
   search(query: String){
     //search for players using fuzzySet (npm package)    
     var searchResults = [],
-      fuzzySet = require('fuzzy'),
+      fuzzySet = require("fuzzy"),
       results = fuzzySet.filter(query, this.playerData, {extract: function(el){ return el.Name; }}).map(el => { return el.string; }).forEach(playerName => searchResults.push(this.playerData.filter(a => a.Name == playerName)[0]) );
 
     //parse results

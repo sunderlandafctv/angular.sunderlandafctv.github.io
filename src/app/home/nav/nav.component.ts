@@ -1,16 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, Event, NavigationEnd } from '@angular/router';
-import { TriangleService } from '../../triangle.service'
-import { Subscription } from 'rxjs';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { BaseComponent } from 'src/app/_shared/_baseClass/baseClass';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Router, Event, NavigationEnd } from "@angular/router";
+import { TriangleService } from "../../triangle.service"
+import { Subscription } from "rxjs";
+import { Title } from "@angular/platform-browser";
+import { ActivatedRoute } from "@angular/router";
+import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
-  selector: 'safc-home-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  selector: "safc-home-nav",
+  templateUrl: "./nav.component.html",
+  styleUrls: ["./nav.component.scss"]
 })
 
 export class NavComponent extends BaseComponent implements OnInit, OnDestroy {
@@ -42,9 +42,9 @@ export class NavComponent extends BaseComponent implements OnInit, OnDestroy {
         //set page title
         this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
         //show triangle if going to home page
-        if(event.url != "/home"){
+        if(event.urlAfterRedirects != "/home"){
           this.triangle.hideTriangle();
-        } else if(event.url == "/home"){
+        } else if(event.urlAfterRedirects == "/home"){
           this.triangle.showTriangle();
         }
       }

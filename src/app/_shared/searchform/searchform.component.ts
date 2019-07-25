@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { SearchRequest } from '../search'
+import { SearchRequest } from "../search"
 
 @Component({
-  selector: 'safc-search',
-  templateUrl: './searchform.component.html',
-  styleUrls: ['./searchform.component.scss']
+  selector: "safc-search",
+  templateUrl: "./searchform.component.html",
+  styleUrls: ["./searchform.component.scss"]
 })
 
 export class SearchFormComponent {
 
   constructor(private router: Router){}
 
-  sq: SearchRequest = new SearchRequest('');
+  sq: SearchRequest = new SearchRequest("");
   isFocused: Boolean;
 
   search(){
