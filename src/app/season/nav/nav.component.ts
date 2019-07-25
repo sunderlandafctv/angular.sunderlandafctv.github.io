@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
+import { DataService } from "../data.service"
 
 @Component({
   selector: "app-nav",
@@ -11,7 +12,7 @@ import { ActivatedRoute } from "@angular/router";
 
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router, private titleService: Title, private route: ActivatedRoute){}
+  constructor(private router: Router, private titleService: Title, private route: ActivatedRoute, private dataservice: DataService){}
 
   hamburgerActive: Boolean = false;
 
@@ -45,6 +46,10 @@ export class NavComponent implements OnInit {
   exitHamburgerOnLinkClick(){
     this.hamburgerActive = false;
     document.querySelector("body").classList.remove("noScroll");
+  }
+
+  ngOnDestroy(){
+    this.dataservice.resetData();
   }
 
 }

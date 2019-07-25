@@ -16,6 +16,12 @@ export class DataService extends BaseComponent {
     super();
   }
 
+
+  resetData(){
+    this.seasonPlayersData = null;
+    this.seasonData = null
+  }
+  
   //ALL DATA FROM THE SEASON CSV
 
   seasonData;

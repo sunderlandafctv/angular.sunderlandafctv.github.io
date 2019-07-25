@@ -2,18 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, Observer } from "rxjs";
 import { DomSanitizer } from "@angular/platform-browser";
-import { takeUntil } from "rxjs/operators";
-import { BaseComponent } from "../_shared/_baseClass/baseClass";
 
 @Injectable({
   providedIn: "root"
 })
 
-export class VideoService extends BaseComponent {
+export class VideoService {
 
-  constructor(private fetch: HttpClient, private sanitizer: DomSanitizer){
-    super();
-  }
+  constructor(private fetch: HttpClient, private sanitizer: DomSanitizer){}
 
   playerVideos = undefined; //again could be private || TODO <-- that
   private Observer: Observer<any>;
@@ -40,7 +36,7 @@ export class VideoService extends BaseComponent {
     new Promise((resolve, reject) => {
       var playerPlaylist, pageToken;
       //request the first 50 playlists from the youtube api
-      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet`).pipe(takeUntil(this.ngUnsubscribe))
+      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet`)
       .subscribe(d => {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
@@ -50,7 +46,7 @@ export class VideoService extends BaseComponent {
       });
       //if player playlist not found in first 50 playlists
       var secondaryRequest = function(fetch) {
-        fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`).pipe(takeUntil(this.ngUnsubscribe))
+        fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`)
         .subscribe(d => {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
@@ -61,7 +57,7 @@ export class VideoService extends BaseComponent {
       };
     }).then(d => {
       //make playlist videos request for the player
-      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${d["id"]}`).pipe(takeUntil(this.ngUnsubscribe))
+      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${d["id"]}`)
       .subscribe(d => {
         Array.from(d["items"])
         for (let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);
