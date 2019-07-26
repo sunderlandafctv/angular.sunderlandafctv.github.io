@@ -12,9 +12,9 @@ export class SeasonsComponent {
 
   toggleSeasonLinks(e){
     var element = e.target;
-    element.tagName == "BUTTON" ? 
-      element.parentNode.parentNode.classList.toggle("active") : //if clicked on the outside wrapper
-      element.parentNode.parentNode.parentNode.classList.toggle("active") //if clicked on the inside arrow icon
+    if(element.tagName == "DIV") element.parentNode.classList.toggle("active")
+    else if(element.tagName == "P") element.parentNode.parentNode.classList.toggle("active")
+    else if(element.tagName == "I") element.parentNode.parentNode.parentNode.classList.toggle("active")
   }
 
 }
