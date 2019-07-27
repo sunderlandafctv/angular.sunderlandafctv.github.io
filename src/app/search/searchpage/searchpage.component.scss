@@ -16,7 +16,12 @@
     }
     .text-wrapper{
         width: calc(100% - 174px);
-        float: right
+        float: right;
+        @media only screen and (max-width: $media_largephone){
+            width: calc(100% - 20px);
+            margin: 0 10px 10px 10px;
+            float: none;
+        }
     }
     .text{
         margin-top: 15px;
@@ -33,8 +38,8 @@
 }
 
 
-@media only screen and (min-width: $media_tablet) and (max-width: $media_largelaptop){
+@media only screen and (max-width: $media_largephone){
     .image.left {
-        float: none !important;
+        float: none;
     }
 }

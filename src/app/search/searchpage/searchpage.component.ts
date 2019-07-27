@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Papa } from "ngx-papaparse";
-import { Subscription } from "rxjs";
+import { Router } from "@angular/router"
 import { takeUntil } from "rxjs/operators";
 import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
@@ -14,7 +14,7 @@ import { BaseComponent } from "src/app/_shared/_baseClass/baseClass";
 
 export class SearchPageComponent extends BaseComponent implements OnInit {
 
-  constructor(private fetch: HttpClient, private route: ActivatedRoute, private papa:Papa){
+  constructor(private router: Router, private fetch: HttpClient, private route: ActivatedRoute, private papa:Papa){
     super();
   }
 
@@ -25,6 +25,7 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
   noPlayers: Boolean = false;
 
   ngOnInit(){
+
     this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
       this.papa.parse(d,{
@@ -35,7 +36,7 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
           this.playerData = result.data;
 
           this.route.params.subscribe(params => {
-            if(!params["query"]){ //show search box if no query is present
+            if(!params["query"] || params["query"] == " "){ //show search box if no query is present
               this.noQuery = true;
             } else{ //otherwise continue
               this.searchQuery = params["query"];
@@ -51,12 +52,16 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
   search(query: String){
     //search for players using fuzzySet (npm package)    
     var searchResults = [],
-      fuzzySet = require("fuzzy"),
-      results = fuzzySet.filter(query, this.playerData, {extract: function(el){ return el.Name; }}).map(el => { return el.string; }).forEach(playerName => searchResults.push(this.playerData.filter(a => a.Name == playerName)[0]) );
+      fuzzySet = require("fuzzy");
+      fuzzySet.filter(query, this.playerData, {
+        extract: function(el){ return el.Name; }})
+          .map(el => { return el.string; })
+          .forEach(playerName => searchResults.push(this.playerData.filter(a => a.Name == playerName)[0]) 
+      );
 
     //parse results
     this.matchedPlayerList = searchResults;
-    this.noPlayers = this.matchedPlayerList.length==0 ? true : false;
+    this.noPlayers = this.matchedPlayerList.length == 0 ? true : false;
   }
 
 }

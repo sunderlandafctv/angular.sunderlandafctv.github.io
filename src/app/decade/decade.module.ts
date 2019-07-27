@@ -5,9 +5,10 @@ import { SharedModule } from "../_shared/_shared.module";
 
 import { DecadeRoutingModule } from "./decade-routing.module";
 import { NavComponent } from "./nav/nav.component";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, HomeComponent],
   imports: [
     SharedModule,
     CommonModule,

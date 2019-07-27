@@ -1,9 +1,9 @@
-<div>
+<div style="margin-bottom: 30px">
     <h1 class="title" style="margin-bottom: 0;">Search results for <strong class="accent">{{searchQuery}}</strong></h1>
     <safc-search></safc-search>
 </div>
 <div class="wrapper">
-  <img alt="Loading ..." [hidden]="noQuery" *ngIf="matchedPlayerList.length==0 && !noPlayers" class="loader" src="../../../assets/loader.png">
+  <img alt="Loading ..." [hidden]="noQuery" *ngIf="matchedPlayerList.length==0 && !noPlayers" class="loader" src="../../../assets/loader.gif">
 
   <div *ngIf="noPlayers" class="wrapper noPlayers">
     <h1 class="title accent">Sorry, no players found</h1>

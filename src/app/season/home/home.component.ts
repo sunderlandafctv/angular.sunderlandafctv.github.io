@@ -26,8 +26,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   ngOnInit(){
     this.season = this.router.url.split("/")[3]; //could be a route.params subscription
     //season csv
-    this.seasondata.getAllSeasonData(this.season).pipe(takeUntil(this.ngUnsubscribe))
-    .pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+    this.seasondata.getAllSeasonData(this.season).pipe(takeUntil(this.ngUnsubscribe)).subscribe(
       d => {
         if(d["League Position"].substr(-1) == ".") d["League Position"] = d["League Position"].slice(0, -1);
         this.seasonData = d

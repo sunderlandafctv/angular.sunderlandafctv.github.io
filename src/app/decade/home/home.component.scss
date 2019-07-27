@@ -1,0 +1,79 @@
+@import "../../../css/colours",
+        "../../../css/variables";
+
+.card.long{
+    padding-bottom: 0px;
+}
+
+//bottom of card - down arrow to "open" .seasonLinks
+.dropdownToggle{
+    margin: 0 auto;
+    width: calc(100% - 20px); //for margin purposes
+    display: flex;
+    align-items: center;
+    padding: 13px 0;
+    cursor: pointer;
+    .text{ //leftmost text
+        margin-left: 5px
+    }
+    &:hover .btn{
+        color: $colour_red;
+    }
+    .btn{ //rightmost button
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin-left: auto;
+        margin-right: 5px;
+        font-size: 1.5em;
+        transition: color .1s;
+        cursor: pointer;
+        i{
+            transition: transform .1s;
+        }
+        &:focus{
+            outline: none; //probably not good for acessability || TODO add meaningful focus property
+        }
+    }
+}
+
+//card extention activaated/"dropped down" by the card.active selector
+.seasonLinks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    background: $colour_white;
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+    transition: max-height .1s, padding .1s;
+    a{
+        width: 50%;
+        margin: 10px 0;
+        transition: color .1s;
+        &:hover{
+            color: $colour_red;
+        }
+    }
+}
+
+//if active class has been toggled by dropdowntoggle btn
+.card.active{
+    border-radius: 5px 5px 0 0;
+    transition-delay: 0s;
+    .dropdownToggle .btn i{
+        transform:rotate(180deg);
+        color: $colour_red
+    }
+    .seasonLinks{
+        white-space: initial;
+        padding: 0 0 15px;
+        box-shadow: 0 7px 8px 0 rgba(0,0,0,.445);
+        max-height: 500px
+    }
+}

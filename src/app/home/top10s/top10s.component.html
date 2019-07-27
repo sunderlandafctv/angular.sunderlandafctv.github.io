@@ -1,6 +1,6 @@
 <div *ngIf="!top10videos" class="wrapper">
-  <img alt="Loading ..." class="loader" src="../../../assets/loader.png">
+  <img alt="Loading ..." class="loader" src="../../../assets/loader.gif">
 </div>
 <div *ngIf="top10videos" class="wrapper multiLine">
-  <article *ngFor="let i of top10videos" class="card video"><iframe title="Top 10 Video" [src]="i.URL"></iframe></article>
+  <article *ngFor="let i of top10videos" class="card video"><iframe title="Top 10 Video" [src]="i.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></article>
 </div>
