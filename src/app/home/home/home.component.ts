@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { DomSanitizer } from "@angular/platform-browser";
-import { VideosOTMService } from "../videos-otm.service"
+import { VideosOTMService } from "../videos-otm.service";
+import { takeUntil } from "rxjs/operators";
 import { BaseComponent } from "../../_shared/_baseClass/baseClass";
 
 @Component({
@@ -11,22 +11,17 @@ import { BaseComponent } from "../../_shared/_baseClass/baseClass";
 
 export class HomeComponent extends BaseComponent implements OnInit{
   
-  constructor(private sanitizer: DomSanitizer, private videos: VideosOTMService){
+  constructor(private videos: VideosOTMService){
     super()
   }
 
-  goalOTM;
-  gameOTM;
+  public goalOTM: String;
+  public gameOTM: String;
 
   ngOnInit(){
-    this.videos.getOTMVideos().subscribe(d => {
-      if(d){
-        this.goalOTM = d[0];
-        this.gameOTM = d[1];
-      } else{
-        this.goalOTM = {"URL":this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/lEZJLUuwh8E")};
-        this.gameOTM = {"URL":this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/51ZCVdCMIxI")};
-      }
+    this.videos.getOTMVideos().pipe(takeUntil(this.ngUnsubscribe)).subscribe(d => {
+      this.goalOTM = d["items"][0];
+      this.gameOTM = d["items"][1];
     })  
   }
 

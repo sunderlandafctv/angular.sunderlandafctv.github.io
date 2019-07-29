@@ -15,10 +15,7 @@ export class VideosOTMService extends BaseComponent{
     super()
   }
 
-  private playlistID: String = "TODO - add a real id";
-
   private otmVideos: Object;
-
   private Observer: Observer<Object>;
 
   getOTMVideos(){
@@ -27,7 +24,7 @@ export class VideosOTMService extends BaseComponent{
     } else{
       return new Observable(observer => {
         this.Observer = observer;
-        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${this.playlistID}&maxResults=2`).pipe(takeUntil(this.ngUnsubscribe))
+        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=2&part=snippet&playlistId=PLiVty6-a8hTz-dMkL2e3oKp56fjk3lXev`).pipe(takeUntil(this.ngUnsubscribe))
         .subscribe(d => {
           //because of typescript"s wierd variable type system
           Array.from(d["items"])

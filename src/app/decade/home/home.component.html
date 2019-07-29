@@ -1,28 +1,62 @@
-<article class="card long"> 
-  <picture>
-    <source type="image/webp" srcset="../../../assets/home-decades/PreWW2.webp">
-    <img class="image center" alt="Pre 1950's profile" src="../../../assets/home-decades/PreWW2.png">
-  </picture>
-  <div class="textWrapper">
-    <h1 class="title accent">Pre 1950's</h1>
-    <p class="text">seasonData.Description</p>     
-    <div class="dropdownToggle" (click)="toggleSeasonLinks($event)">
-      <p class="text">View Seasons</p>
-      <button class="btn" aria-label="Open Season Links">
-        <i class="fas fa-chevron-down"></i>
-      </button>
-    </div>
-    <div class="seasonLinks">
-      <a routerLink="/seasons/1950s/1950-1951"><h1>1950-1951</h1></a>
-      <a routerLink="/seasons/1950s/1951-1952"><h1>1951-1952</h1></a>
-      <a routerLink="/seasons/1950s/1952-1953"><h1>1952-1953</h1></a>
-      <a routerLink="/seasons/1950s/1953-1954"><h1>1953-1954</h1></a>
-      <a routerLink="/seasons/1950s/1954-1955"><h1>1954-1955</h1></a>
-      <a routerLink="/seasons/1950s/1955-1956"><h1>1955-1956</h1></a>
-      <a routerLink="/seasons/1950s/1956-1957"><h1>1956-1957</h1></a>
-      <a routerLink="/seasons/1950s/1957-1958"><h1>1957-1958</h1></a>
-      <a routerLink="/seasons/1950s/1958-1959"><h1>1958-1959</h1></a>
-      <a routerLink="/seasons/1950s/1959-1960"><h1>1959-1960</h1></a>
+<article class="card dropdown" style="z-index: 5;">
+  <div class="cardWrapper">
+    <picture>
+      <source type="image/webp" srcset="../../../assets/Teamgroups/season.webp">
+      <img class="image left" style="width: auto; max-width: 300px;" alt="season profile image" src="../../../assets/Teamgroups/season.png">
+    </picture>
+    <div class="textWrapper">
+      <h1 class="title accent" style="margin: 15px 0">decade</h1>
+      <h2 class="subtitle">subtitle</h2>
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempus posuere turpis, eget sagittis purus condimentum sit amet. Vivamus dictum id nibh vel porta. Nullam vitae risus eu nisi vestibulum consectetur nec suscipit massa. Phasellus placerat, nisi ut gravida sodales, nunc dolor gravida quam, a posuere dolor enim aliquet lorem. Aenean congue nisl at ligula vehicula, nec accumsan magna ultricies. Aliquam non odio ac mauris elementum blandit in sed justo.</p>     
     </div>
   </div>
+  <div class="dropdownToggle" (click)="toggleSeasonLinks($event)">
+    <p class="text">View Seasons</p>
+    <button class="btn" aria-label="Open Season Links">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="seasonLinks">
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+    <a routerLink="/seasons/decade/season"><h1>season</h1></a>
+  </div>
 </article>
+
+<h1 class="title">Top players of the 1950's!</h1>
+
+<div class="wrapper">
+  <article class="card">
+      <h1 class="title">some other content</h1>
+  </article>
+  <article class="card">
+    <h1 class="title">Team of the "decade"</h1>
+      
+    <div class="pitch">
+      <img src="../../../assets/footballpitch.svg" alt="">
+      
+      <div class="player keeper"></div>
+
+      <div class="player defence top"></div>
+      <div class="player defence middle-top"></div>
+      <div class="player defence middle-bottom"></div>
+      <div class="player defence bottom"></div>
+
+      <div class="player midfield top"></div>
+      <div class="player midfield middle-top"></div>
+      <div class="player midfield middle-bottom"></div>
+      <div class="player midfield bottom"></div>
+
+      <div class="player forward middle-top"></div>
+      <div class="player forward middle-bottom"></div>
+      
+    </div>
+  </article>
+</div>

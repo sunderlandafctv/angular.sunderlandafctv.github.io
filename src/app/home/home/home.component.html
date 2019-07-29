@@ -38,7 +38,7 @@
       <span class="label">348 games, 100 goals</span>
   </a>
 </div>
-<div class="wrapper">
+<div class="wrapper" *ngIf="goalOTM && gameOTM">
   <article class="card video">
       <h1 class="title">Goal of the Month</h1>
       <iframe title="Goal of the Month" [src]="goalOTM.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
