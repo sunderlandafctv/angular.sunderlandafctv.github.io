@@ -136,39 +136,45 @@
         position: absolute;
         top: 0;
         //left: 0;
-        height: 35px;
-        width: 35px;
+        height: 45px;
+        width: 45px;
+        transition: height .1s, width .1s;
         background-color: #bbb;
         border-radius: 50%;
 
+        &:hover{
+            height: 50px;
+            width: 50px;
+        }
+
         &.top{
-            top: calc(15% - (35px / 2));
+            top: calc(15% - (45px / 2));
         }
         &.middle-top{
-            top: calc(38% - (35px / 2));
+            top: calc(38% - (45px / 2));
         }
         &.middle-bottom{
-            top: calc(62% - (35px / 2));
+            top: calc(62% - (45px / 2));
         }
         &.bottom{
-            top: calc(85% - (35px / 2));
+            top: calc(85% - (45px / 2));
         }
 
         &.keeper{
-            top: calc(50% - (35px / 2));
-            left: calc(10% - (35px / 2));
+            top: calc(50% - (45px / 2));
+            left: calc(10% - (45px / 2));
         }
 
         &.defence{
-            left: calc(25% - (35px / 2));
+            left: calc(25% - (45px / 2));
         }
 
         &.midfield{
-            left: calc(45% - (35px / 2));
+            left: calc(45% - (45px / 2));
         }
 
         &.forward{
-            left: calc(65% - (35px / 2));
+            left: calc(65% - (45px / 2));
         }
     }
 }
