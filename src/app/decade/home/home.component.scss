@@ -4,7 +4,7 @@
 .card.dropdown{
     padding: 0;
     .cardWrapper{
-        margin: 20px 0 10px 0; 
+        margin: 20px 0 0 0; 
         display: flex; 
         flex-direction: column;
         align-items: center;
@@ -123,7 +123,6 @@
     height: 325px;
     border: none;
     user-select: none;
-
     img{
         border-radius: 5px;
         object-position: center center;
@@ -131,22 +130,16 @@
         width: 100%;
         height: 100%;
     }
-
     .player{
         position: absolute;
-        top: 0;
-        //left: 0;
         height: 45px;
         width: 45px;
-        transition: height .1s, width .1s;
+        transition: transform .1s;
         background-color: #bbb;
         border-radius: 50%;
-
         &:hover{
-            height: 50px;
-            width: 50px;
+            transform: scale(1.15)
         }
-
         &.top{
             top: calc(15% - (45px / 2));
         }
@@ -159,20 +152,22 @@
         &.bottom{
             top: calc(85% - (45px / 2));
         }
-
         &.keeper{
             top: calc(50% - (45px / 2));
             left: calc(10% - (45px / 2));
         }
-
         &.defence{
             left: calc(25% - (45px / 2));
+            &.middle-top, &.middle-bottom{
+                left: calc(30% - (45px / 2));
+            }
         }
-
         &.midfield{
             left: calc(45% - (45px / 2));
+            &.top, &.bottom{
+                left: calc(50% - (45px / 2));
+            }
         }
-
         &.forward{
             left: calc(65% - (45px / 2));
         }
