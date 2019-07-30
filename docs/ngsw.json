@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1564230848319,
+  "timestamp": 1564467694596,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.41f57909edfb5c49397e.js",
-        "/6.7743b8caa48a3afe8700.js",
+        "/5.b3170c618506deeadd56.js",
+        "/6.1ee92461eaf709a59c95.js",
         "/7.8d4c3f142b6a7dcff2dd.js",
         "/8.3bbed2f24225418a97de.js",
         "/es2015-polyfills.bda95d5896422d031328.js",
@@ -17,7 +17,7 @@
         "/index.html",
         "/main.1471609bc269460fe8d9.js",
         "/polyfills.3779d652866572142f03.js",
-        "/runtime.65f9b01cb70ba0ecd592.js",
+        "/runtime.58ced4cbad8a64115ad7.js",
         "/styles.67e0529f9977f729b65d.css"
       ],
       "patterns": []
@@ -360,9 +360,9 @@
     "/2.eeb30fc84e7126a95b84.webp": "d43c5db1deb02b5117fe76495aa69ffcd7784267",
     "/3.9e48515196b917471520.webp": "3202dcc25aa191e957e143a76711ab3d4cb92f0b",
     "/4.145378bef831f9b260a5.webp": "74bd373bd4cf2fe63c19c99e4f17b772186e410c",
-    "/5.41f57909edfb5c49397e.js": "bbb3a64f045cdcfa37efc94bc90c8e576e12bbbd",
+    "/5.b3170c618506deeadd56.js": "c8d3181651fd0d28651c159c0771db0b588a1975",
     "/5.bdfc4845fe35217bc0ac.webp": "38d5545a9020a8cc1186c8fbf13119d872729120",
-    "/6.7743b8caa48a3afe8700.js": "a6ac4f2617914775b5dc79045deecab463f827c8",
+    "/6.1ee92461eaf709a59c95.js": "ee28ede2750cfaf84f7f1dd56b3b5f7d5fe3a87d",
     "/7.8d4c3f142b6a7dcff2dd.js": "6d486284243a4218c178185d9aaf32dab046d323",
     "/8.3bbed2f24225418a97de.js": "a43ab6374313fe5a331e99d65389262f47e8b602",
     "/assets/Teamgroups/1950-1951.png": "24e35099beab3330547ef8f7e3827d4f8a083537",
@@ -684,11 +684,11 @@
     "/assets/playerprofiles/884.webp": "892850406e5881f25809973ebeb7497cc814e1e3",
     "/es2015-polyfills.bda95d5896422d031328.js": "1612fe8f7e8e0c856f0885ff179e93363c67834f",
     "/favicon.ico": "08a8f6cf2e29602f55c8f52e1d914c3a2eccb4ff",
-    "/index.html": "d9638ddd1b3d84ed405162855ab8ebe9482f8e44",
+    "/index.html": "bc1927c1b2889796c82461adbc22bd50a3efeccb",
     "/loader_iframe.cc4b2f0ac2af7f33d02e.png": "b036be0f052e3b3aff3861966c6d1103ab38ebc6",
     "/main.1471609bc269460fe8d9.js": "03645935912775cbdff9046f586da43027aef563",
     "/polyfills.3779d652866572142f03.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.65f9b01cb70ba0ecd592.js": "1251a0d1edad6787ac0cbda4746d2a50e48fd2ac",
+    "/runtime.58ced4cbad8a64115ad7.js": "64c96c4584ac4fbc5cd1035c283fe9e1a8fcb811",
     "/styles.67e0529f9977f729b65d.css": "5df9d3530e09451a1677281bce9ab2d0cd94c8eb"
   },
   "navigationUrls": [
