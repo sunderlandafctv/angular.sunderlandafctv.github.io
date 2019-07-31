@@ -113,6 +113,34 @@
     }
 }
 
+
+.seasonDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    min-height: 430px;
+    padding: 0;
+    .smalltitle{
+        font-size: 1.4em;
+        padding: 9px 0px 7px 15px;
+        text-align: left;
+        border-bottom: 1px solid lightgray;
+        &:last-of-type{
+            border-bottom: none;
+        }
+        a{
+            color: $colour_red;
+            margin-right: 20px;
+        }
+        span{
+            line-height: 1.4;
+            font-size: .75em;
+            margin: .05 0
+        }
+    }
+}
+
 .pitch{
     position: relative;
     margin: 0 15px;
@@ -134,6 +162,7 @@
         transition: transform .1s;
         background-color: #bbb;
         border-radius: 50%;
+        overflow: hidden;
         &:hover{
             transform: scale(1.15)
         }

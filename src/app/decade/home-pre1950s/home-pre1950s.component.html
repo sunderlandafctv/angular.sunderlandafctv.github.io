@@ -1,3 +1,55 @@
-<p>
-  home-pre1950s works!
-</p>
+<article class="card dropdown" style="z-index: 5;">
+  <div class="cardWrapper">
+    <picture>
+      <source type="image/webp" srcset="../../../assets/home-decades/PreWW2.webp">
+      <img class="image left" style="width: auto; max-width: 300px;" alt="season profile image" src="../../../assets/home-decades/PreWW2.png">
+    </picture>
+    <div class="textWrapper">
+      <h1 class="title accent" style="margin: 15px 0">Pre 1950's</h1>
+      <h2 class="subtitle">subtitle</h2>
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempus posuere turpis, eget sagittis purus condimentum sit amet. Vivamus dictum id nibh vel porta. Nullam vitae risus eu nisi vestibulum consectetur nec suscipit massa. Phasellus placerat, nisi ut gravida sodales, nunc dolor gravida quam, a posuere dolor enim aliquet lorem. Aenean congue nisl at ligula vehicula, nec accumsan magna ultricies. Aliquam non odio ac mauris elementum blandit in sed justo.</p>     
+    </div>
+  </div>
+  <div class="dropdownToggle" (click)="toggleSeasonLinks($event)">
+    <p class="text">View Seasons</p>
+    <button class="btn" aria-label="Open Season Links">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="seasonLinks">
+    <a routerLink="/seasons/Pre1950s/1890s"><h1>1890's</h1></a>
+    <a routerLink="/seasons/Pre1950s/1920s"><h1>1920's</h1></a>
+    <a routerLink="/seasons/Pre1950s/1900s"><h1>1900's</h1></a>
+    <a routerLink="/seasons/Pre1950s/1930s"><h1>1930's</h1></a>
+    <a routerLink="/seasons/Pre1950s/1910s"><h1>1910's</h1></a>
+    <a routerLink="/seasons/Pre1950s/1940s"><h1>1940's</h1></a>
+  </div>
+</article>
+<div class="wrapper">
+  <article class="card seasonDetails">
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1890s"><a>1890's</a><span>------</span></a>
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1900s"><a>1900's</a><span>------</span></a>
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1910s"><a>1910's</a><span>------</span></a>
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1920s"><a>1920's</a><span>------</span></a>
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1930s"><a>1930's</a><span>------</span></a>
+    <a class="smalltitle" routerLink="/seasons/Pre1950s/1940s"><a>1940's</a><span>------</span></a>
+  </article>
+  <article class="card">
+    <h1 class="title">Team of the Pre 1950's</h1>
+    <div class="pitch">
+      <img src="../../../assets/footballpitch.svg" alt="Football Pitch Background">
+      <!--TODO make these the real team-->
+      <a class="player keeper" routerLink="/players/JohnnyMapson"><img src="../../../assets/playerprofiles/593.webp" alt="Johnny Mapson profile"></a>
+      <a class="player defence top" routerLink="/players/BillyElliot"><img src="../../../assets/playerprofiles/305.webp" alt="Billy Elliot profile"></a>
+      <a class="player defence middle-top" routerLink="/players/GeorgeAikten"><img src="../../../assets/playerprofiles/49.webp" alt="George Aikten profile"></a>
+      <a class="player defence middle-bottom" routerLink="/players/StanAnderson"><img src="../../../assets/playerprofiles/58.webp" alt="Stan Anderson profile"></a>
+      <a class="player defence bottom" routerLink="/players/JackSterling"><img src="../../../assets/playerprofiles/776.webp" alt="Jack Sterling profile"></a>
+      <a class="player midfield top" routerLink="/players/RayDaniel"><img src="../../../assets/playerprofiles/274.webp" alt="Ray Daniel profile"></a>
+      <a class="player midfield middle-top" routerLink="/players/LenShackleton"><img src="../../../assets/playerprofiles/749.webp" alt="Len Shackleton profile"></a>
+      <a class="player midfield middle-bottom" routerLink="/players/TommyWright"><img src="../../../assets/playerprofiles/884.webp" alt="Tommy Wright profile"></a>
+      <a class="player midfield bottom" routerLink="/players/CharlieFleming"><img src="../../../assets/playerprofiles/323.webp" alt="Charlie Fleming profile"></a>
+      <a class="player forward middle-top" routerLink="/players/DickieDavis"><img src="../../../assets/playerprofiles/166.webp" alt="Dickie Davis profile"></a>
+      <a class="player forward middle-bottom" routerLink="/players/BillyBingham"><img src="../../../assets/playerprofiles/277.webp" alt="Billy Bingham profile"></a>
+    </div>
+  </article>
+</div>

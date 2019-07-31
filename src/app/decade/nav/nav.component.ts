@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
 @Component({
@@ -10,18 +10,19 @@ import { Title } from "@angular/platform-browser";
 
 export class NavComponent {
 
-  constructor(private router: Router, private titleService: Title, private route: ActivatedRoute){}
+  constructor(private router: Router, private titleService: Title){}
 
   hamburgerActive: Boolean = false;
 
   ngOnInit(){
-    this.titleService.setTitle(`${this.route.snapshot.params.decade} | SUNDERLANDAFC.TV`); //set document title
+    console.log(this.router.url.split("/")[2])
+    this.titleService.setTitle(`${this.router.url.split("/")[2]} | SUNDERLANDAFC.TV`); //set document title
     var allowedDecades = [
       "Pre1950s","1950s","1960s","1970s","1980s","1990s"
     ], isAllowedDecade = allowedDecades.find(e => { return e == this.router.url.split("/")[2] })
  
     //check if the season and decade is valid
-    if(!isAllowedDecade) this.router.navigate(["/404"], { queryParams: { src: "nodecade", d: this.route.snapshot.params.decade } })
+    if(!isAllowedDecade) this.router.navigate(["/404"], { queryParams: { src: "nodecade", d: this.router.url.split("/")[2] } })
   }
 
   //toggle mobile navigation page
