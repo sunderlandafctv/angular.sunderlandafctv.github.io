@@ -47,13 +47,16 @@ footer{
     align-items: center;
     div.card{
         padding-top: 0;
-        padding-bottom: 20px;
+        padding-bottom: 15px;
         width: 95%;
         @media only screen and (min-width: $media_tablet) {
             width: 50%;
         }
         @media only screen and (min-width: $media_smalllaptop) {
             width: 30%;
+        }
+        .text{
+            margin: 0 5px;
         }
         .btn{
             border: none;

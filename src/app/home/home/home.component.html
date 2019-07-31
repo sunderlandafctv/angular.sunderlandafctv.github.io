@@ -38,13 +38,13 @@
       <span class="label">348 games, 100 goals</span>
   </a>
 </div>
-<div class="wrapper" *ngIf="goalOTM && gameOTM">
-  <article class="card video">
+<div class="wrapper">
+  <article class="card video" style="min-height: 402.5px">
       <h1 class="title">Goal of the Month</h1>
-      <iframe title="Goal of the Month" [src]="goalOTM.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe *ngIf="goalOTM && gameOTM" title="Goal of the Month" [src]="goalOTM.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </article>
-  <article class="card video">
+  <article class="card video" style="min-height: 402.5px">
       <h1 class="title">Game of the Month</h1>
-      <iframe title="Game of the Month" [src]="gameOTM.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe *ngIf="goalOTM && gameOTM" title="Game of the Month" [src]="gameOTM.URL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </article>
 </div>

@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   //decade pages
   {
-    path: "seasons/:decade",
+    path: "seasons",
     loadChildren: "./decade/decade.module#DecadeModule"
   },
   //season pages (if season is specified)

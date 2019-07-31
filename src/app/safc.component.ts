@@ -20,10 +20,12 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   ngOnInit(){
     this.isOffline = !navigator.onLine;
+    if(!navigator.onLine){ document.querySelector("body").classList.add("noScroll") }
   }
 
   hideModal(){
     this.isOffline = false;
+    document.querySelector("body").classList.remove("noScroll");
   }
 
   ngAfterViewInit() {
