@@ -14,11 +14,11 @@
   </div>
   
   <div *ngIf="errorText=='season'" class="noSeason">
-    <div *ngIf="seasons[0]" style="text-align: center">
+    <div *ngIf="similarSeasons[0]" style="text-align: center">
       <p class="title" style="margin-bottom: 10px; text-align: center">Did you mean: </p>
-      <a style="margin: 0 5px;" *ngFor="let season of seasons" routerLink="/seasons/{{season}}0s/{{season}}">{{season}}</a>
+      <a style="margin: 0 5px;" *ngFor="let season of similarSeasons" routerLink="/seasons/{{season}}0s/{{season}}">{{season}}</a>
     </div>
-    <div *ngIf="!seasons[0]" style="text-align: center">
+    <div *ngIf="!similarSeasons[0]" style="text-align: center">
       <p style="margin: 20px 0; text-align: center">I don't think Sunderland played in the <strong style="color: #EB172B">{{dataText}}</strong> season</p>
       <safc-search> </safc-search>
     </div>

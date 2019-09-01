@@ -30,9 +30,12 @@ export class NavComponent implements OnInit {
       "Pre1950s","1950s","1960s","1970s","1980s","1990s"
     ], isAllowedDecade = allowedDecades.find(e => { return e == this.router.url.split("/")[2] })
 
+    var seasonPartOfDecade = (isAllowedSeason || "").substring(0,3) == (isAllowedDecade || "").replace(/\D/g,'').substring(0,3)
+    
     //check if the season and decade is valid
     if(!isAllowedSeason) this.router.navigate(["/404"], { queryParams: { src: "noseason", d: this.router.url.split("/")[3] } });
     else if(!isAllowedDecade) this.router.navigate(["/404"], { queryParams: { src: "nodecade", d: this.router.url.split("/")[2] } })
+    else if(!seasonPartOfDecade) this.router.navigate(["/404"], { queryParams: { src: "noseason", d: this.router.url.split("/")[3] } })
   }
 
   //toggle mobile navigation page

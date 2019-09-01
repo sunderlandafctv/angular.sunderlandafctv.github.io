@@ -6,6 +6,9 @@
         height: 200px;
         width: 300px;
     }
+    .textWrapper .text{
+        text-align: justify;
+    }
     @media only screen and (min-width: $media_tablet) {
         flex-direction: row;
         .textWrapper .text{

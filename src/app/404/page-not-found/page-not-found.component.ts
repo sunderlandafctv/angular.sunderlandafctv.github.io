@@ -43,6 +43,7 @@ export class PageNotFoundComponent extends BaseComponent implements OnInit {
       
       //PLAYER
       if(pmtext == "noplayer") this.errorText = "player";
+      //SEASON
       else if(pmtext == "noseason"){
         this.errorText = "season";
         //season provided in data"s similarity to allowed seasons

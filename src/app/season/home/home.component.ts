@@ -24,6 +24,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
   topPlayers;
 
   ngOnInit(){
+
     this.season = this.router.url.split("/")[3]; //could be a route.params subscription
     //season csv
     this.seasondata.getAllSeasonData(this.season).pipe(takeUntil(this.ngUnsubscribe)).subscribe(
@@ -34,17 +35,17 @@ export class HomeComponent extends BaseComponent implements OnInit {
     )
     //get the player csv -> could be consolidated with the playerdata service || TODO <-- that
     this.seasondata.getAllPlayerData().pipe(takeUntil(this.ngUnsubscribe)).subscribe(d => this.seasondata.getSeasonPlayers(this.router.url.split("/")[3]).pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(d => {
-      if(d["length"] > 2) this.seasondata.getTopSeasonPlayers(d).pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(d => this.topPlayers = d )
-    }));
+      .subscribe(d => {
+        if(d["length"] > 2) this.seasondata.getTopSeasonPlayers(d).pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(d => this.topPlayers = d )
+      }));
     //get the videos of the season.
     this.seasondata.getSeasonVideos(this.season).pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(d => {
-      if(d["length"] < 2) this.randomVideos = d;
-      else this.seasondata.getRandomVideos(d).pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(d => this.randomVideos = d )
-    });
+      .subscribe(d => {
+        if(d["length"] < 2) this.randomVideos = d;
+        else this.seasondata.getRandomVideos(d).pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe(d => this.randomVideos = d )
+      });
   }
   
 }

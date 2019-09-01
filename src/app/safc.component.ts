@@ -29,11 +29,12 @@ export class AppComponent extends BaseComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.router.events.pipe(takeUntil(this.ngUnsubscribe)).subscribe(e => {
+    var subscription = this.router.events.subscribe(e => {
       if(e instanceof NavigationStart){
         this.isLoading = true;
-      } else if(e instanceof NavigationEnd || e instanceof NavigationCancel){
+      } else if(e instanceof NavigationEnd){
         this.isLoading = false;
+        subscription.unsubscribe()
       }
     });
   }
