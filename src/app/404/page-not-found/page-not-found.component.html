@@ -24,15 +24,4 @@
     </div>
   </div>
 
-  <div *ngIf="errorText=='decade'" class="noDecade">
-      <div *ngIf="decades[0]" style="text-align: center">
-        <p class="title" style="margin-bottom: 10px; text-align: center">Did you mean: </p>
-        <a style="margin: 0 5px;" *ngFor="let decade of decades" routerLink="/seasons/{{decade}}">{{decade}}</a>
-      </div>
-      <div *ngIf="!decades[0]" style="text-align: center">
-        <p style="margin: 20px 0; text-align: center">I don't think <strong style="color: #EB172B">{{dataText}}</strong> is a real decade</p>
-        <safc-search></safc-search>
-      </div>
-    </div>
-
 </div>

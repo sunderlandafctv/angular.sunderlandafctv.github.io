@@ -27,16 +27,8 @@ export class PageNotFoundNavComponent extends BaseComponent implements OnInit, O
 
   ngOnInit(){
     //set page title
-    this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
+    this.titleService.setTitle(`404 | SUNDERLANDAFC.TV`)
     document.querySelector("body").classList.remove("noScroll");
-    //look for url changes
-    this.routerSubscription = this.router.events.pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe((event: Event) => {
-      if(event instanceof NavigationEnd) {
-        //set page title
-        this.titleService.setTitle(`${this.capitaliseFirst(this.route.snapshot["_routerState"].url.replace("/",""))} | SUNDERLANDAFC.TV`)
-      }
-    });
   }
 
   ngOnDestroy(){

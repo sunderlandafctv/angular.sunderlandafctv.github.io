@@ -28,13 +28,14 @@ export class VideosComponent extends BaseComponent implements OnInit, OnDestroy 
       this.playerData = d;
       this.videodata.getPlayerVideos(this.playerData["Name"]).pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
-        d => this.playerVideos = d["items"],
-        e => this.playerVideos = e //if no player videos - graceful isn"t it?
+        d => {
+          
+          if(d["items"]) this.playerVideos = d["items"]
+          else this.playerVideos = 'Player videos not found'
+        
+        }
       )
     });
   }
 
-  ngOnDestroy(){
-    //TODO unsubscribe from observables here
-  }
 }

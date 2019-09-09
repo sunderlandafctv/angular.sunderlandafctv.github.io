@@ -66,7 +66,7 @@ export class VideoService {
       })
     }).catch(e => {
       //player not found redirect
-      this.Observer.error("Player videos not found");
+      this.Observer.next(["player videos not found"]);
     })
   }
 

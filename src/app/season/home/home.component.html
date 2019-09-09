@@ -8,7 +8,7 @@
     <img class="image left" style="width: auto; max-width: 300px;" alt="{{season}} profile image" src="../../../assets/Teamgroups/{{season}}.png">
   </picture>
   <div class="textWrapper">
-      <h1 class="title accent">{{season}}</h1>
+      <h1 class="title accent"><span><a *ngIf="previousSeason" href="{{previousSeason}}" class="fas fa-arrow-left"></a></span> {{season}} <span><a *ngIf="nextSeason" href="{{nextSeason}}" class="fas fa-arrow-right"></a></span></h1>
       <h2 class="subtitle">Finished {{seasonData["League Position"]}}</h2>
       <p class="text">{{seasonData.Description}}</p>     
       <div class="wrapper">

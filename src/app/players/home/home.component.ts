@@ -34,11 +34,20 @@ export class HomeComponent extends BaseComponent implements OnInit {
         .subscribe( 
 
           d => {
-            if(d["items"].length > 2){
-              this.playerdata.getRandomVideos(d["items"]).pipe(takeUntil(this.ngUnsubscribe)).subscribe(videos => this.randomVideos = videos)
-            } else{
-              this.randomVideos = d["items"]
+
+            if(!d["items"]){
+              console.log("no player videos");
+              this.randomVideos = 'Player videos not found'
             }
+
+            else{
+              if(d["items"].length > 2){
+                this.playerdata.getRandomVideos(d["items"]).pipe(takeUntil(this.ngUnsubscribe)).subscribe(videos => this.randomVideos = videos)
+              } else{
+                this.randomVideos = d["items"]
+              }
+            }
+
           },
           
         );

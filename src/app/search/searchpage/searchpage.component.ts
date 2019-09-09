@@ -36,7 +36,7 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
           this.playerData = result.data;
 
           this.route.params.subscribe(params => {
-            if(!params["query"] || params["query"] == " "){ //show search box if no query is present
+            if(!params["query"]){ //show search box if no query is present
               this.noQuery = true;
             } else{ //otherwise continue
               this.searchQuery = params["query"];
@@ -50,6 +50,8 @@ export class SearchPageComponent extends BaseComponent implements OnInit {
   }
 
   search(query: String){
+
+    console.log(query)
     //search for players using fuzzySet (npm package)    
     var searchResults = [],
       fuzzySet = require("fuzzy");

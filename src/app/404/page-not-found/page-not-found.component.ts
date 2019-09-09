@@ -37,8 +37,12 @@ export class PageNotFoundComponent extends BaseComponent implements OnInit {
       var pmtext = params["src"];
       this.dataText = params["d"];
 
+      if(!params["d"] || params["d"] == ""){
+        this.dataText = "undefined"
+      }
+
       /*
-        parseing "src" param
+        parsing "src" param
       */
       
       //PLAYER
@@ -50,7 +54,7 @@ export class PageNotFoundComponent extends BaseComponent implements OnInit {
         this.allowedSeasons.forEach(e => {
           var similarity = this.similarity(e,params["d"]);
           if(similarity >= 0.8){
-            this.similarSeasons.push(e);
+            this.similarSeasons.push(e); 
           }
         })
       }
