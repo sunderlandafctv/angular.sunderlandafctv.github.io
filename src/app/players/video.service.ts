@@ -36,7 +36,7 @@ export class VideoService {
     new Promise((resolve, reject) => {
       var playerPlaylist, pageToken;
       //request the first 50 playlists from the youtube api
-      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet`)
+      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet`)
       .subscribe(d => {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
@@ -46,7 +46,7 @@ export class VideoService {
       });
       //if player playlist not found in first 50 playlists
       var secondaryRequest = function(fetch) {
-        fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`)
+        fetch.get(`https://www.googleapis.com/youtube/v3/playlists?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&channelId=UCoh98rO2DkogICZKE-2fJ7g&maxResults=50&part=snippet&pageToken=${pageToken}`)
         .subscribe(d => {
           pageToken = d["nextPageToken"] || undefined, 
           playerPlaylist = d["items"].find(e => { return e.snippet.title == playerName });
@@ -57,7 +57,7 @@ export class VideoService {
       };
     }).then(d => {
       //make playlist videos request for the player
-      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${d["id"]}`)
+      this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&maxResults=50&part=snippet&playlistId=${d["id"]}`)
       .subscribe(d => {
         Array.from(d["items"])
         for (let i of d["items"]) i["URL"] = this.sanitizer.bypassSecurityTrustResourceUrl(`https://youtube.com/embed/${i.snippet.resourceId.videoId}`);

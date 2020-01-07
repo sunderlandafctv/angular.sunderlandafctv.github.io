@@ -40,7 +40,7 @@ export class PlayerService extends BaseComponent {
     }
   }
   private fetchData(playerName: String){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
       this.papa.parse(d,{
         header: true,

@@ -24,7 +24,7 @@ export class VideosOTMService extends BaseComponent{
     } else{
       return new Observable(observer => {
         this.Observer = observer;
-        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=2&part=snippet&playlistId=PLiVty6-a8hTz-dMkL2e3oKp56fjk3lXev`).pipe(takeUntil(this.ngUnsubscribe))
+        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&maxResults=2&part=snippet&playlistId=PLiVty6-a8hTz-dMkL2e3oKp56fjk3lXev`).pipe(takeUntil(this.ngUnsubscribe))
         .subscribe(d => {
           //because of typescript"s wierd variable type system
           Array.from(d["items"])

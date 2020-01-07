@@ -1,27 +1,7 @@
 <div class="wrapper">
   
   <h1 class="title accent error404">404</h1>
-  <p>Sorry, that {{errorText}} was not found</p>
-  
-  <div *ngIf="errorText=='page'" style="margin-top: 35px">
-    <a routerLink="/home" class="label">
-      <i class="fas fa-home"></i> Go Home
-    </a>
-  </div>
-  
-  <div *ngIf="errorText=='player'" style="margin-top: 10px">
-    <safc-search></safc-search>
-  </div>
-  
-  <div *ngIf="errorText=='season'" class="noSeason">
-    <div *ngIf="similarSeasons[0]" style="text-align: center">
-      <p class="title" style="margin-bottom: 10px; text-align: center">Did you mean: </p>
-      <a style="margin: 0 5px;" *ngFor="let season of similarSeasons" routerLink="/seasons/{{season}}0s/{{season}}">{{season}}</a>
-    </div>
-    <div *ngIf="!similarSeasons[0]" style="text-align: center">
-      <p style="margin: 20px 0; text-align: center">I don't think Sunderland played in the <strong style="color: #EB172B">{{dataText}}</strong> season</p>
-      <safc-search> </safc-search>
-    </div>
-  </div>
+  <p>Sorry, that page was not found.</p>
+  <safc-search></safc-search>
 
 </div>

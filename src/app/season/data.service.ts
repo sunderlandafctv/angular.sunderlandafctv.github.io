@@ -37,7 +37,7 @@ export class DataService extends BaseComponent {
     }
   }
   private fetchAllSeasonData(season){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&alt=media", {responseType: "text"}).pipe(takeUntil(this.ngUnsubscribe))
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/13zFcmgj-ZniGi56ryFnOHHLrihkHr0gZ?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&alt=media", {responseType: "text"}).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
     this.papa.parse(d,{
         header: true,
@@ -69,7 +69,7 @@ export class DataService extends BaseComponent {
     }
   }
   private fetchPlayerData(){
-    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
+    this.fetch.get("https://www.googleapis.com/drive/v3/files/15oeaaa7_u3_U-VZZ7kKeWGBpujTNxghE?alt=media&key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI",{"responseType":"text"}).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
       this.papa.parse(d,{
         header: true,
@@ -185,7 +185,7 @@ export class DataService extends BaseComponent {
       "199":"PLiVty6-a8hTw-YVfL4cX4-FwVnFL1gP8Q"
     }
     var decadePlaylistID = season.charAt(4) == "s" ? seasons.Pre : seasons[season.substr(0,3)];
-    this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=${decadePlaylistID}`).pipe(takeUntil(this.ngUnsubscribe))
+    this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&maxResults=50&part=snippet&playlistId=${decadePlaylistID}`).pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(d => {
       var results: Array<any> = [];
       if(decadePlaylistID == "PLiVty6-a8hTyIQnquz7JuJUbmptgl4k4X"){

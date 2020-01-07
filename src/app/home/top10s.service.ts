@@ -19,12 +19,13 @@ export class Top10sService extends BaseComponent {
   private Observer: Observer<Object>;
 
   getTop10Videos(){
+    
     if(this.top10Videos){
       return new Observable(observer => observer.next(this.top10Videos));
     } else{
       return new Observable(observer => {
         this.Observer = observer;
-        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyAZoBe_3b33sC9ySoAfmHdtzQjlMAg0lek&maxResults=50&part=snippet&playlistId=PLiVty6-a8hTwboGWLDbQL0ZEjC92atdP3`).pipe(takeUntil(this.ngUnsubscribe))
+        this.fetch.get(`https://www.googleapis.com/youtube/v3/playlistItems?key=AIzaSyDBs9KZOutpxzd-_fNSUAl-nj0rW01XXJI&maxResults=50&part=snippet&playlistId=PLiVty6-a8hTwboGWLDbQL0ZEjC92atdP3`).pipe(takeUntil(this.ngUnsubscribe))
         .subscribe(d => {
           //because of typescript"s wierd variable type system
           Array.from(d["items"])
@@ -35,5 +36,7 @@ export class Top10sService extends BaseComponent {
         });
       });
     }
+
   }
+
 }

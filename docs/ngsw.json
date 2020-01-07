@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1578360061588,
+  "timestamp": 1578362333178,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -9,15 +9,15 @@
       "updateMode": "prefetch",
       "urls": [
         "/5.a1f961d9e35feb8271c2.js",
-        "/6.d78a3862f96c883730e5.js",
-        "/7.6c8e5957f624e2283139.js",
-        "/8.67330a286f5e94cfad7e.js",
+        "/6.63797291ab33ba1a5f3b.js",
+        "/7.c95476e4462bdd2adc0e.js",
+        "/8.54e4a0691d848203439b.js",
         "/es2015-polyfills.bda95d5896422d031328.js",
         "/favicon.ico",
         "/index.html",
-        "/main.e51791f128b8deef99c1.js",
+        "/main.98abfb68b1d92bc03d18.js",
         "/polyfills.3779d652866572142f03.js",
-        "/runtime.c1ac37ff925bae6f66fd.js",
+        "/runtime.0664be3c8c8bfa01405c.js",
         "/styles.67e0529f9977f729b65d.css"
       ],
       "patterns": []
@@ -364,9 +364,9 @@
     "/4.145378bef831f9b260a5.webp": "74bd373bd4cf2fe63c19c99e4f17b772186e410c",
     "/5.a1f961d9e35feb8271c2.js": "78ed0bf5d2b1041be778af038fd3c83e145bdb38",
     "/5.bdfc4845fe35217bc0ac.webp": "38d5545a9020a8cc1186c8fbf13119d872729120",
-    "/6.d78a3862f96c883730e5.js": "b159cac874b785d11d3da2303da2f448c7c5f337",
-    "/7.6c8e5957f624e2283139.js": "e6593f155bd3ca6d5a138a3b9b6b957d74f80dc8",
-    "/8.67330a286f5e94cfad7e.js": "b671bc18510b1a3faad422cd282c4a42e738ecc8",
+    "/6.63797291ab33ba1a5f3b.js": "06009ee46d476fadd2ce58b1b5c73383a863b7e3",
+    "/7.c95476e4462bdd2adc0e.js": "38a5513b35cc2d3dccf65c21f0a8e555e4e86882",
+    "/8.54e4a0691d848203439b.js": "574868ceb5b19d854cf34fc8dd73e6f51bbc3459",
     "/assets/Teamgroups/1950-1951.png": "24e35099beab3330547ef8f7e3827d4f8a083537",
     "/assets/Teamgroups/1950-1951.webp": "8c509c75b39abcd9075a1906073f2b8851505b5a",
     "/assets/Teamgroups/1951-1952.png": "f8e3ac3dec2033ab5292f6192e2c36a1f872b4d4",
@@ -688,11 +688,11 @@
     "/assets/playerprofiles/884.webp": "892850406e5881f25809973ebeb7497cc814e1e3",
     "/es2015-polyfills.bda95d5896422d031328.js": "1612fe8f7e8e0c856f0885ff179e93363c67834f",
     "/favicon.ico": "08a8f6cf2e29602f55c8f52e1d914c3a2eccb4ff",
-    "/index.html": "8cd5ec0f18d389bcfd3ceeef05e8e441f55f853d",
+    "/index.html": "be7d27e678f7fd03f052f021e669132c7452c4b0",
     "/loader_iframe.cc4b2f0ac2af7f33d02e.png": "b036be0f052e3b3aff3861966c6d1103ab38ebc6",
-    "/main.e51791f128b8deef99c1.js": "c449e5cdae7f168498014f9bb7dd1078d81e643e",
+    "/main.98abfb68b1d92bc03d18.js": "b40eb9b0cb9b27893f6f09c0dcecbb049046d2ff",
     "/polyfills.3779d652866572142f03.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.c1ac37ff925bae6f66fd.js": "bbf74938a4464fa169e7f0f53f6078e6832cbaae",
+    "/runtime.0664be3c8c8bfa01405c.js": "32d94da86f32390d0ca43e6344238032216b46f5",
     "/styles.67e0529f9977f729b65d.css": "5df9d3530e09451a1677281bce9ab2d0cd94c8eb"
   },
   "navigationUrls": [
