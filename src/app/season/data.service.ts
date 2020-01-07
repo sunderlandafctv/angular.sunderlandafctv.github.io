@@ -210,9 +210,9 @@ export class DataService extends BaseComponent {
           }
         });
       }
-      this.seasonVideosData = results; 
+      this.seasonVideosData = results;
       this.seasonVideosObserver.next(results)
-    })
+    }, error => console.log('oops', error))
 
   }
 

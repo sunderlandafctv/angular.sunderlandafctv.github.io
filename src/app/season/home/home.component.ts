@@ -80,6 +80,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
         if(d["length"] > 2) this.seasondata.getTopSeasonPlayers(d).pipe(takeUntil(this.ngUnsubscribe))
           .subscribe(d => this.topPlayers = d )
       }));
+
     //get the videos of the season.
     this.seasondata.getSeasonVideos(this.season).pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(d => {

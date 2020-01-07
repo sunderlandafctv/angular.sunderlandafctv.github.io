@@ -5,7 +5,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { NavComponent }     from "./nav/nav.component";
 import { HomeComponent }    from "./home/home.component";
 import { SeasonsComponent } from "./seasons/seasons.component";
-import { PlayersComponent } from "./players/players.component";
+// import { PlayersComponent } from "./players/players.component";
 import { Top10sComponent }  from "./top10s/top10s.component";
 import { AboutComponent }   from "./about/about.component";
 
@@ -31,10 +31,10 @@ const routes: Routes = [
     path: "seasons", 
     component: SeasonsComponent 
   },
-  { 
-    path: "players", 
-    component: PlayersComponent 
-  },
+  // { 
+  //   path: "players", 
+  //   component: PlayersComponent 
+  // },
   { 
     path: "top10s", 
     component: Top10sComponent 
