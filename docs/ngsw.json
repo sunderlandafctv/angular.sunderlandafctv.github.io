@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1578468127844,
+  "timestamp": 1578633600420,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/es2015-polyfills.bda95d5896422d031328.js",
         "/favicon.ico",
         "/index.html",
-        "/main.98abfb68b1d92bc03d18.js",
+        "/main.b6bb4ff639d4b84a805c.js",
         "/polyfills.3779d652866572142f03.js",
         "/runtime.4a1df5523edcec297311.js",
         "/styles.67e0529f9977f729b65d.css"
@@ -688,9 +688,9 @@
     "/assets/playerprofiles/884.webp": "892850406e5881f25809973ebeb7497cc814e1e3",
     "/es2015-polyfills.bda95d5896422d031328.js": "1612fe8f7e8e0c856f0885ff179e93363c67834f",
     "/favicon.ico": "08a8f6cf2e29602f55c8f52e1d914c3a2eccb4ff",
-    "/index.html": "eec06e2d253fdc40da1324035536d9f71a634543",
+    "/index.html": "7f4501d8dd64c3257174247e6695752b9a07f697",
     "/loader_iframe.cc4b2f0ac2af7f33d02e.png": "b036be0f052e3b3aff3861966c6d1103ab38ebc6",
-    "/main.98abfb68b1d92bc03d18.js": "b40eb9b0cb9b27893f6f09c0dcecbb049046d2ff",
+    "/main.b6bb4ff639d4b84a805c.js": "eee1bd6a8e7c822e7e0fd45bc25092907cfaead7",
     "/polyfills.3779d652866572142f03.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.4a1df5523edcec297311.js": "115b1a2060552d4938205aaf9a335f745d634174",
     "/styles.67e0529f9977f729b65d.css": "5df9d3530e09451a1677281bce9ab2d0cd94c8eb"
