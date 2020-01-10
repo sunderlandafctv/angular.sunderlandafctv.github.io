@@ -19,7 +19,6 @@ export class PageNotFoundNavComponent extends BaseComponent implements OnInit, O
   }
 
   hamburgerActive: Boolean = false;
-  routerSubscription: Subscription;
 
   private capitaliseFirst(string){
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -29,10 +28,6 @@ export class PageNotFoundNavComponent extends BaseComponent implements OnInit, O
     //set page title
     this.titleService.setTitle(`404 | SUNDERLANDAFC.TV`)
     document.querySelector("body").classList.remove("noScroll");
-  }
-
-  ngOnDestroy(){
-    this.routerSubscription.unsubscribe();
   }
 
   //toggle mobile navigation page

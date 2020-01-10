@@ -27,7 +27,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
     .subscribe(d => {
       //check if player exists in the db
       if(!d){
-        this.router.navigate(["/404"], { queryParams: { src: "noplayer" } });
+        this.router.navigate(["/404"]);
       } else{
         this.playerData = d;
         this.videodata.getPlayerVideos(this.playerData["Name"]).pipe(takeUntil(this.ngUnsubscribe))

@@ -35,9 +35,9 @@ export class NavComponent implements OnInit {
       ((isAllowedSeason || "").substring(0,1) == (isAllowedDecade || "").substring(3,4)) && ((isAllowedSeason || "").substring(3,5) == (isAllowedDecade || "").substring(6,8))
 
     //check if the season and decade is valid
-    if(!isAllowedSeason) this.router.navigate(["/404"], { queryParams: { src: "noseason", d: this.router.url.split("/")[3] } });
-    else if(!isAllowedDecade) this.router.navigate(["/404"], { queryParams: { src: "nodecade", d: this.router.url.split("/")[2] } })
-    else if(!seasonPartOfDecade) this.router.navigate(["/404"], { queryParams: { src: "noseason", d: this.router.url.split("/")[3] } })
+    if(!isAllowedSeason) this.router.navigate(["/404"]);
+    else if(!isAllowedDecade) this.router.navigate(["/404"])
+    else if(!seasonPartOfDecade) this.router.navigate(["/404"])
   }
 
   //toggle mobile navigation page

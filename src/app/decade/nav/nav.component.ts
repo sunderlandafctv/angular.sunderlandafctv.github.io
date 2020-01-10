@@ -22,7 +22,7 @@ export class NavComponent {
     ], isAllowedDecade = allowedDecades.find(e => { return e == this.router.url.split("/")[2] })
  
     //check if the season and decade is valid
-    if(!isAllowedDecade) this.router.navigate(["/404"], { queryParams: { src: "nodecade", d: this.router.url.split("/")[2] } })
+    if(!isAllowedDecade) this.router.navigate(["/404"])
   }
 
   //toggle mobile navigation page
