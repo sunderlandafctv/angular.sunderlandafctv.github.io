@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1579397410202,
+  "timestamp": 1579404598685,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,7 +8,7 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/5.d7aada09e5cd1359ecd7.js",
+        "/5.5e2dc9339368904a1f61.js",
         "/6.c3bd312ea266db5717b0.js",
         "/7.c5c30faf5eaf72a12d79.js",
         "/8.3110db79b85ef218dc10.js",
@@ -17,7 +17,7 @@
         "/index.html",
         "/main.695f944325d87eb2942c.js",
         "/polyfills.3779d652866572142f03.js",
-        "/runtime.d996b077126786411121.js",
+        "/runtime.cc54a3fd26ca75a27433.js",
         "/styles.67e0529f9977f729b65d.css"
       ],
       "patterns": []
@@ -362,8 +362,8 @@
     "/2.eeb30fc84e7126a95b84.webp": "d43c5db1deb02b5117fe76495aa69ffcd7784267",
     "/3.9e48515196b917471520.webp": "3202dcc25aa191e957e143a76711ab3d4cb92f0b",
     "/4.145378bef831f9b260a5.webp": "74bd373bd4cf2fe63c19c99e4f17b772186e410c",
+    "/5.5e2dc9339368904a1f61.js": "09ac75ccf50d276367315ecc45ebf46582a8cbe5",
     "/5.bdfc4845fe35217bc0ac.webp": "38d5545a9020a8cc1186c8fbf13119d872729120",
-    "/5.d7aada09e5cd1359ecd7.js": "cf07d5dcee4ae1c19af427ec740c907cedfd307c",
     "/6.c3bd312ea266db5717b0.js": "235cd5c6ca62f7ebeb69fc3c3759cbe63206784a",
     "/7.c5c30faf5eaf72a12d79.js": "1678dc5c01fa8a6ca463b75e6a866f34d888ba9b",
     "/8.3110db79b85ef218dc10.js": "ce44a5283337ed600373adbcec934e5d1d405779",
@@ -688,11 +688,11 @@
     "/assets/playerprofiles/884.webp": "892850406e5881f25809973ebeb7497cc814e1e3",
     "/es2015-polyfills.bda95d5896422d031328.js": "1612fe8f7e8e0c856f0885ff179e93363c67834f",
     "/favicon.ico": "08a8f6cf2e29602f55c8f52e1d914c3a2eccb4ff",
-    "/index.html": "e55c53def5926def491b1821f33663f800536a8c",
+    "/index.html": "9c9fe790bc5a788f6e2825b482c3cca534aacec0",
     "/loader_iframe.cc4b2f0ac2af7f33d02e.png": "b036be0f052e3b3aff3861966c6d1103ab38ebc6",
     "/main.695f944325d87eb2942c.js": "8416c85893142b6e20edfd36c681600c548e52ec",
     "/polyfills.3779d652866572142f03.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-    "/runtime.d996b077126786411121.js": "933871fe18327888e920d75574b16ace454a8123",
+    "/runtime.cc54a3fd26ca75a27433.js": "a4d0ad1bbc8c3647b85dc9e872671af71b9b6521",
     "/styles.67e0529f9977f729b65d.css": "5df9d3530e09451a1677281bce9ab2d0cd94c8eb"
   },
   "navigationUrls": [
