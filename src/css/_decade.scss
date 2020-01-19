@@ -54,7 +54,7 @@
             transition: transform .1s;
         }
         &:focus{
-            outline: none; //probably not good for acessability || TODO add meaningful focus property
+            color: $colour_red;
         }
     }
 }

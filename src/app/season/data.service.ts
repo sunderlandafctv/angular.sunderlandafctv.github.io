@@ -42,7 +42,7 @@ export class DataService extends BaseComponent {
     this.papa.parse(d,{
         header: true,
         complete: result => {
-          result.data.pop(); //TODO remove if/when CSV data comes back with 0 errors
+          result.data.pop();
           var seasonData = result.data.filter(a => a.Season === season)[0]
           this.seasonData = seasonData;
           if(seasonData) this.seasonObserver.next(seasonData);

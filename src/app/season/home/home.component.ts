@@ -17,10 +17,9 @@ export class HomeComponent extends BaseComponent implements OnInit {
     super();
   }
 
-  //TODO oh god ts types
-  season;
-  nextSeason;
-  previousSeason;
+  season: string;
+  nextSeason: string;
+  previousSeason: string;
   seasonData;
   randomVideos;
   topPlayers;

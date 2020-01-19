@@ -19,11 +19,8 @@ export class PlayersComponent extends BaseComponent implements OnInit {
   seasonPlayers;
 
   ngOnInit(){
-    this.seasondata.getAllPlayerData().pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(d => { //maybe unnecessary
-      //TODO remove nested subscriptions
-      this.seasondata.getSeasonPlayers(this.router.url.split("/")[3]).pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(d => this.seasonPlayers = d ) 
+    this.seasondata.getAllPlayerData().pipe(takeUntil(this.ngUnsubscribe)).subscribe(d => { //maybe unnecessary
+      this.seasondata.getSeasonPlayers(this.router.url.split("/")[3]).pipe(takeUntil(this.ngUnsubscribe)).subscribe(d => this.seasonPlayers = d ) 
     });
   }
 

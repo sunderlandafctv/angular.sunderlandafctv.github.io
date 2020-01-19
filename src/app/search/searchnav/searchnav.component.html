@@ -1,6 +1,6 @@
 <header class="header" [ngClass]="{hamburgerActive: hamburgerActive}">
   <a class="logo" routerLink="/" routerLinkActive="active">
-      <strong></strong>.TV<sup class="v2">v2</sup>
+      <strong></strong>.TV
   </a>
   <nav>
     <button class="hamburger" title="Open Navigation" aria-label="Open Navigation" (click)="toggleHamburger()" [ngClass]='hamburgerActive ? "active" : ""'>
@@ -11,7 +11,6 @@
     <div class="links">
       <a routerLink="/home" routerLinkActive="active" (click)="exitHamburgerOnLinkClick()">Home</a>
       <a routerLink="/seasons" routerLinkActive="active" (click)="exitHamburgerOnLinkClick()">Seasons</a>
-      <a routerLink="/players" routerLinkActive="active" (click)="exitHamburgerOnLinkClick()">Players</a>
       <a routerLink="/top10s" routerLinkActive="active" (click)="exitHamburgerOnLinkClick()">Top 10s</a>
       <a routerLink="/about" routerLinkActive="active" (click)="exitHamburgerOnLinkClick()">About</a>
     </div>
